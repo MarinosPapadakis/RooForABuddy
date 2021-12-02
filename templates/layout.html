@@ -16,15 +16,25 @@
         {% block head %}{% endblock %}
     </head>
     <body>
-        <div class="header">
-            <nav class="navbar">
-              <h1 class="logo">RooForABuddy</h1>
-              <ul class="desktop-list" style="list-style: none;">
-                <li><a href="#">Contact us</a></li>
-                <li class="ctn"><a href="#">About</a></li>
-              </ul>
-            </nav>
+      <header>
+        <nav class="navbar1">
+          <a href="#" class="nav-branding">RooforABuddy</a>
+          <ul class="nav-menu">
+            <li class="nav-item">
+              <a href="#" class="nav-link">About</a>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="nav-link">Contact</a>
+            </li>
+          </ul>
+          <div class="hamburger">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
           </div>
+        </nav>
+      </header>
+        <script src="script.js"></script>
         <main>
             {% block main %}{% endblock %}
         </main>    
