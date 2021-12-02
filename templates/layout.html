@@ -4,14 +4,45 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">    
         
-        <link href="../static/favicon.ico" rel="icon">
-        <link href="../static/styles.css" rel="stylesheet">
+        <link href="../static/images/favicon.ico" rel="icon">
+
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="../static/style.css">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/fontawesome.min.css">
 
         <title>RooForABuddy</title>
+
+        {% block head %}{% endblock %}
     </head>
     <body>
+        <div class="header">
+            <nav class="navbar">
+              <h1 class="logo">RooForABuddy</h1>
+              <ul class="desktop-list" style="list-style: none;">
+                <li><a href="#">Contact us</a></li>
+                <li class="ctn"><a href="#">About</a></li>
+              </ul>
+            </nav>
+          </div>
         <main>
             {% block main %}{% endblock %}
         </main>    
+        <footer class="sticky-footer">
+            <nav class="nav">
+              <a href="#" class="nav__link nav__link--active">
+                <i class="material-icons nav__icon">home</i>
+                <span class="nav__text">Home</span>
+              </a>
+              <a href="#" class="nav__link nav__link--active">
+                <i class="material-icons nav__icon">settings</i>
+                <span class="nav__text">Settings</span>
+              </a>
+              <a href="#" class="nav__link nav__link--active">
+                <i class="material-icons nav__icon">person</i>
+                <span class="nav__text">Profile</span>
+              </a>
+            </nav>
+          </footer>
     </body>
 </html>

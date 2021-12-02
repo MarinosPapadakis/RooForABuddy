@@ -1,37 +1,53 @@
 {% extends "layout.html" %}
 
+{% block head %}
+
+<script async defer src="https://maps.googleapis.com/maps/api/js?key={{MAPS_API}}&callback=initMap"
+type="text/javascript"></script>
+<script type="text/javascript">
+
+    if(navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(initMap,onGeoError);
+    } else {
+        alert("No GPS support");
+    }
+    
+    function initMap(position) {
+        map = new google.maps.Map(document.getElementById('map'), {
+            center: {lat: position.coords.latitude, lng: position.coords.longitude},
+            zoom: 16
+        });
+
+        {% for i in range(0,len) %}
+        const marker = new google.maps.Marker({
+            position: {lat: markers[i][1], lng: markers[i][2]},
+            map,
+        });
+
+        const infowindow = new google.maps.InfoWindow({
+            content: markers[i][3],
+        });
+
+        marker.addListener("click", () => {
+            infowindow.open(map, marker);
+        });
+        {% endfor %}
+    }
+
+    function onGeoError(event) {
+      alert("Error code " + event.code + ". " + event.message);
+    }
+</script>       
+
+{% endblock %}
+
+
 {% block main %}
 
 <h1>RooForABuddy</h1>
 
-<script>
-    function getLocationConstant()
-    {
-      if(navigator.geolocation)
-      {
-       navigator.geolocation.getCurrentPosition(onGeoSuccess,onGeoError);
-      } else {
-       alert("No GPS support");
-      }
-    }
-    
-    
-    function onGeoSuccess(event)
-    {
-        document.getElementById("location").value =  event.coords.latitude+", "+event.coords.longitude;
-        alert("Success: "+event.coords.latitude+", "+event.coords.longitude);
-    }
-    
-    
-    function onGeoError(event)
-    {
-      alert("Error code " + event.code + ". " + event.message);
-    }
-    
-    
-    </script>
-    
-    <input type="text" name="location" id="location" style="width:278px;">
-    <button onclick="getLocationConstant()" >Click</button>
+<div class="container">
+    <div id="map" style="width:100%; height:500px;"></div>
+</div>
 
 {% endblock %}

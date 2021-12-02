@@ -2,7 +2,7 @@ from flask import Flask, render_template, session, redirect, request
 from tempfile import mkdtemp
 from werkzeug.security import check_password_hash, generate_password_hash
 from flask_session import Session
-import sqlite3
+import sqlite3, os
 
 # Configure application
 app = Flask(__name__)
@@ -15,12 +15,23 @@ app.config["SESSION_TYPE"] = "filesystem"
 # Define database name
 app.config["DB_NAME"] = "database.db"
 
+MAPS_API = os.getenv("MAPS-API")
+
 # Configure session
 Session(app)
 
 @app.route("/")
 def index():
-    return render_template("index.html")
+
+    # Connect to database
+    connection = sqlite3.connect(app.config["DB_NAME"])
+    cursor = connection.cursor()
+
+    # Query database for markers
+    cursor.execute("SELECT photo, latitude, longitude, info FROM places")
+    markers = cursor.fetchall()
+
+    return render_template("index.html", len=len(markers), markers=markers, MAPS_API=MAPS_API)
 
 @app.route("/register", methods=["GET", "POST"])
 def register():
