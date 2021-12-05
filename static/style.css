@@ -101,7 +101,7 @@
     transition: background-color 0.1s ease-in-out;
   }
   .nav__link:hover {
-    background-color: black;
+    background-color: #00fa7e;
   }
   .nav__link--active {
     color: #c1cebf;
@@ -160,7 +160,7 @@
       top: 70px;
       gap: 0;
       flex-direction: column;
-      background-color: #1d3b22;
+      background-color: #00fa7e;
       width: 100%;
       text-align: center;
       transition: 0.3s;
