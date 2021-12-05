@@ -7,8 +7,8 @@ import sqlite3, os
 # Configure application
 app = Flask(__name__)
 
-app.config['SECRET_KEY'] = os.getenv("SECRET-KEY")
-
+app.config["SECRET_KEY"] = os.getenv("SECRET-KEY")
+app.config['SESSION_TYPE'] = "filesystem"
 app.config["SESSION_PERMANENT"] = True
 
 # Define database name
@@ -135,3 +135,36 @@ def login():
 
     else:
         return render_template("login.html")
+
+@app.route("/foundanimal", methods=["GET", "POST"])
+def foundanimal():
+
+    # If method is POST
+    if request.method == "POST":
+
+        # Connect to database
+        connection = sqlite3.connect(app.config["DB_NAME"])
+        cursor = connection.cursor()
+
+        # Define user's credentials
+        username = request.form.get("username")
+        fullName = request.form.get("fullName")
+        email = request.form.get("email")
+        password = request.form.get("password")
+        confirmation = request.form.get("confirmation")
+        telephone = request.form.get("telephone")
+
+        # Insert new user into database
+        cursor.execute("INSERT INTO users (username, hash, fullName, email, tel) VALUES (?, ?, ?, ?, ?)", (username, hash_pw, fullName, email, telephone))
+        connection.commit()
+
+        # Close connection to database
+        cursor.close()
+        connection.close()
+
+        # Redirect user to login
+        return redirect("/")
+
+    else:
+
+        return render_template("foundanimal.html")
