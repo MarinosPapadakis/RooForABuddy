@@ -16,6 +16,7 @@
         {% block head %}{% endblock %}
     </head>
     <body>
+      {% if not session.user_id %}
       <header>
         <nav class="navbar1">
           <a href="/" class="nav-branding"><img width="75%" height="75%" src="..\static\images\full logo v2.png" alt="header image"></a>
@@ -34,6 +35,7 @@
           </div>
         </nav>
       </header>
+      {% endif %}
         <script src="..\static\script.js"></script>
         <main>
             {% block main %}{% endblock %}
