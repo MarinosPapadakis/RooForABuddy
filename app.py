@@ -73,7 +73,7 @@ def register():
         hash_pw = generate_password_hash(password)
 
         # Insert new user into database
-        cursor.execute("INSERT INTO users (username, hash, fullName, email, telephone) VALUES (?, ?, ?, ?, ?, ?)", (username, hash_pw, fullName, email, telephone))
+        cursor.execute("INSERT INTO users (username, hash, fullName, email, telephone) VALUES (?, ?, ?, ?, ?)", (username, hash_pw, fullName, email, telephone))
         connection.commit()
 
         # Query database for username
