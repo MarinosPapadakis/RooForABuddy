@@ -158,6 +158,7 @@
       transform: translateY(-8px) rotate(-45deg);
     }
     .nav-menu{
+      display: block;
       position: fixed;
       left: -100%;
       top: 70px;
@@ -168,7 +169,7 @@
       text-align: center;
       transition: 0.3s;
       z-index: 1;
-      display: block;
+      display: flex;
     }
     .nav-item{
       margin: 16px 0;
