@@ -7,10 +7,8 @@ import sqlite3, os
 # Configure application
 app = Flask(__name__)
 
-# Configure session to use filesystem (instead of signed cookies)
-app.config["SESSION_FILE_DIR"] = mkdtemp()
+# Session permanent
 app.config["SESSION_PERMANENT"] = True
-app.config["SESSION_TYPE"] = "filesystem"
 
 # Define database name
 app.config["DB_NAME"] = "database.db"
