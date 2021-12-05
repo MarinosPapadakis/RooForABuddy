@@ -7,7 +7,8 @@ import sqlite3, os
 # Configure application
 app = Flask(__name__)
 
-# Session permanent
+app.config['SECRET_KEY'] = os.getenv("SECRET-KEY")
+
 app.config["SESSION_PERMANENT"] = True
 
 # Define database name
