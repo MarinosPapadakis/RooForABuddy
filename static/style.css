@@ -171,6 +171,7 @@
       transition: 0.3s;
       z-index: 1;
       display: flex;
+      position: sticky;
     }
     .nav-item{
       margin: 16px 0;
