@@ -110,6 +110,7 @@
     color: #c1cebf;
   }
   .nav__icon {
+    color: black;
     font-size: 10px;
   }
    /* Footer*/
@@ -134,7 +135,7 @@
       border-radius: 50px;
     }
     .sticky-footer a {
-      font-size: 20px;
+      font-size: 30px;
     }
     .navbar{
       padding: 5px 20px;
