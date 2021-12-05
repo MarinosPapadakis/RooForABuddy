@@ -69,7 +69,7 @@
     margin: 0 auto;
   } 
   /* Footer*/
-  .sticky-footer{
+  .sticky{
     position: sticky;
     top: 100%;
   }
@@ -118,7 +118,7 @@
     .navbar .desktop-list{
       display: none;
     }
-    .sticky-footer{
+    .sticky{
       display: block;
       position: fixed;
       bottom: 0;
@@ -134,8 +134,13 @@
       background-color: black;
       border-radius: 50px;
     }
+<<<<<<< HEAD
     .sticky-footer a {
       font-size: 30px;
+=======
+    .sticky a {
+      font-size: 20px;
+>>>>>>> eb1df825f08137dd48a38e573be2c490545e10e5
     }
     .navbar{
       padding: 5px 20px;
@@ -169,6 +174,7 @@
       text-align: center;
       transition: 0.3s;
       z-index: 1;
+      display: block;
     }
     .nav-item{
       margin: 16px 0;
