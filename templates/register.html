@@ -3,31 +3,37 @@
 {% block main %}
 
 <div class="sign-up-container">
-    <div class="sign-up-right">
-        <h1 class="sign-up-title">RooForABuddy</h1>
-        <p class="sign-to-desc">
-            by TechKor
-        </p>
-        <p class="sign-up-desc">
-            Already have a account? <a class="sign-up-link" href="/login">Login here</a>
+    <form action="/register" method="POST"  class="sign-up-right">
         <div>
-            <label for="inpName" class="sign-up-label">Name</label>         
-            <input type="text" class="sign-up-input">
+            <label class="sign-up-label">Username</label>         
+            <input name="username" type="text" class="sign-up-input">
         </div>
         <div>
-            <label for="inpEmail" class="sign-up-label">Email Address</label>
-            <input type="email" class="sign-up-input">
+            <label class="sign-up-label">Email Address</label>
+            <input name="email" type="email" class="sign-up-input">
         </div>
         <div>
-            <label for="inpPassword" class="sign-up-label">Password</label>
-            <input type="password" class="sign-up-input">
+            <label class="sign-up-label">Full Name</label>         
+            <input name="fullname" type="text" class="sign-up-input">
+        </div>
+        <div>
+            <label class="sign-up-label">Telephone</label>         
+            <input name="telephone" type="tel" class="sign-up-input">
+        </div>
+        <div>
+            <label class="sign-up-label">Password</label>
+            <input name="password" type="password" class="sign-up-input">
+        </div>
+        <div>
+            <label class="sign-up-label">Confirm Password</label>
+            <input name="confirmation" type="password" class="sign-up-input">
         </div>
         <div>
             <button type="submit" class="sign-up-button">Sign up</button>
         </div>
 
 
-    </div>
+    </form>
 </div>
 
 {% endblock %}
