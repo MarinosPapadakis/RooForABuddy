@@ -83,6 +83,9 @@
     display: flex;
     overflow-x: auto;
   }
+  .nav__text {
+    color: black;
+  }
   .nav__link {
     display: flex;
     flex-direction: column;
@@ -131,7 +134,7 @@
       border-radius: 50px;
     }
     .sticky-footer a {
-      font-size: 30px;
+      font-size: 20px;
     }
     .navbar{
       padding: 5px 20px;
@@ -161,7 +164,6 @@
       gap: 0;
       flex-direction: column;
       background-color: white;
-      color: #00fa7e;
       width: 100%;
       text-align: center;
       transition: 0.3s;
