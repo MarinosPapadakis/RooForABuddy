@@ -134,13 +134,8 @@
       background-color: black;
       border-radius: 50px;
     }
-<<<<<<< HEAD
-    .sticky-footer a {
-      font-size: 30px;
-=======
     .sticky a {
       font-size: 20px;
->>>>>>> eb1df825f08137dd48a38e573be2c490545e10e5
     }
     .navbar{
       padding: 5px 20px;
