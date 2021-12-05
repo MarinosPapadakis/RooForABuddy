@@ -30,7 +30,7 @@
     text-decoration: none;
   }
   .navbar1{
-    min-height: 70px;
+    min-height: 50px;
     display: flex;
     justify-content: space-between;
     align-items: center;
