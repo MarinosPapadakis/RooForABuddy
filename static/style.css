@@ -35,6 +35,7 @@
     justify-content: space-between;
     align-items: center;
     padding: 0 24px;
+    position: sticky;
   } 
   .nav-branding{
     font-size: 2rem;
@@ -171,7 +172,6 @@
       transition: 0.3s;
       z-index: 1;
       display: flex;
-      position: sticky;
     }
     .nav-item{
       margin: 16px 0;
@@ -180,3 +180,87 @@
       left: 0;
     }
   }
+
+  .sign-up-container{
+    display: flex;
+    align-items: center;
+    width: 700px;
+    padding: 20px;
+    box-sizing: border-box;
+    line-height: 1.4;
+    color: #333333;
+    background: #ffffff;
+    border-top: 5px solid #009578;
+    box-shadow: 0 0 15px rgba(0,0,0,0.25);
+}
+.sign-up-container *{
+    font-family: 'Poppins', sans-serif;
+}
+.sign-up-left,
+.sign-up-right {
+    padding: 40px;
+}
+.sign-up-logo{
+    width: 200px;
+    box-sizing: border-box;
+}
+.sing-up-title{
+    margin-top: 0;
+    font-size: 2.7em;
+    font-family: 'Inconsolata', monospace;
+    font-weight: 900;
+}
+.sign-up-link{
+    color: rgb(255, 166, 0);
+}
+
+
+.sign-up-label{
+    /*bazei pano to name apo to input box */
+    display: block;
+    /* dimiourgoume keno*/
+    margin-top: 15px;
+    /* To keno anamesa apo to name kai to input box*/
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+.sign-up-input{
+    width: 100%;
+    padding: 0.75em;
+    box-sizing: border-box;
+    font-size: 11px;
+    outline: none;
+    border: 2px solid #dddddd;
+}
+/*otan epilegei sto input box*/
+.sign-up-input:focus {
+    border-color: #009578;
+}
+.sign-up-button {
+    display: block;
+    margin-left: auto;
+    margin-top: 5px;
+    padding: 0.8em 1.6em;
+    font-weight: bold;
+    font-size: 1.2em;
+    background: #009578;
+    color: #ffffff;
+    cursor: pointer;
+    border: none;
+    outline: none;
+}
+.sign-up-button:active {
+    background: #014739;
+}
+@media screen and (max-width: 768px) {
+    body{
+        display: block;
+        padding: 0;
+    }
+    .sign-up-container{
+        display: block;
+        width: 100%;
+        padding: 0;
+        
+    }
+} 
