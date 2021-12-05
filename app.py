@@ -9,12 +9,13 @@ app = Flask(__name__)
 
 # Configure session to use filesystem (instead of signed cookies)
 app.config["SESSION_FILE_DIR"] = mkdtemp()
-app.config["SESSION_PERMANENT"] = False
+app.config["SESSION_PERMANENT"] = True
 app.config["SESSION_TYPE"] = "filesystem"
 
 # Define database name
 app.config["DB_NAME"] = "database.db"
 
+# Get Google MAP API from host
 MAPS_API = os.getenv("MAPS-API")
 
 # Configure session
