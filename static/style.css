@@ -69,7 +69,7 @@
     margin: 0 auto;
   } 
   /* Footer*/
-  .sticky-footer{
+  .sticky{
     position: sticky;
     top: 100%;
   }
@@ -117,7 +117,7 @@
     .navbar .desktop-list{
       display: none;
     }
-    .sticky-footer{
+    .sticky{
       display: block;
       position: fixed;
       bottom: 0;
@@ -133,7 +133,7 @@
       background-color: black;
       border-radius: 50px;
     }
-    .sticky-footer a {
+    .sticky a {
       font-size: 20px;
     }
     .navbar{
