@@ -48,10 +48,17 @@
                 <i class="material-icons nav__icon">settings</i>
                 <span class="nav__text">Settings</span>
               </a>
+              {% if session.user_id %}
               <a href="#" class="nav__link nav__link--active">
                 <i class="material-icons nav__icon">person</i>
                 <span class="nav__text">Profile</span>
               </a>
+              {% else %}
+              <a href="/login" class="nav__link nav__link--active">
+                <i class="material-icons nav__icon">person</i>
+                <span class="nav__text">Sign in</span>
+              </a>
+              {% endif %}
             </nav>
           </footer>
     </body>
