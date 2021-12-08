@@ -23,16 +23,26 @@
         </div>
         <div>
             <label class="sign-up-label">Password</label>
-            <input name="password" type="password" class="sign-up-input" required>
+            <input name="password" type="password" class="sign-up-input" id="myInput" required>
         </div>
         <div>
             <label class="sign-up-label">Confirm Password</label>
-            <input name="confirmation" type="password" class="sign-up-input" required>
+            <input name="confirmation" type="password" class="sign-up-input" id="myInput" required>
+            <input class="box-password" type="checkbox" onclick="myFunction()"> Show Password
         </div>
         <div>
             <button type="submit" class="sign-up-button">Sign up</button>
         </div>
-     
+        <script>
+            function myFunction() {
+              var x = document.getElementById("myInput");
+              if (x.type === "password") {
+                x.type = "text";
+              } else {
+                x.type = "password";
+              }
+            }
+        </script>
 
      </form>
 

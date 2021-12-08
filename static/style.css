@@ -196,13 +196,12 @@
 .sign-up-link{
     color: rgb(255, 166, 0);
 }
-#eye{
-  position: absolute;
-  right: 15px;
-  transform: translate(0,-50%);
-  top: 50%;
-  cursor: pointer;
+.box-password {
+  margin-top: 1rem;
+  font: .9rem 'Fira Sans', sans-serif;
+
 }
+
 .fa {
   font-size: 20px;
   color: #7a797e;
