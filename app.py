@@ -150,7 +150,7 @@ def foundanimal():
         cursor = connection.cursor()
 
         # Define user's credentials
-        photo = request.files["photo"]
+        photo = request.files["file"]
         latitude = request.form.get("latitude")
         longitude = request.form.get("longitude")
         info = request.form.get("info")
