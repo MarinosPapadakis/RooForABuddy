@@ -179,23 +179,8 @@
       left: 0;
     }
   }
-    /*Register */ 
-  .sign-up-container{
-    display: flex;
-    align-items: center;
-    height: 100%;
-    width: 900px;
-    padding: 20px;
-    box-sizing: border-box;
-    line-height: 1.4;
-    color: #333333;
-    background: #ffffff;
-    border-top: 5px solid #009578;
-    box-shadow: 0 0 15px rgba(0,0,0,0.25);
-}
-.sign-up-container *{
-    font-family: 'Poppins', sans-serif;
-}
+    /*Register */  
+
 .sign-up-right {
     height: 100%;
     padding: 40px;
@@ -254,11 +239,5 @@
         display: block;
         padding: 0;
     }
-    .sign-up-container{
-        height: 100%;
-        display: block;
-        width: 100%;
-        padding: 0;
-        
-    }
+    
 } 
