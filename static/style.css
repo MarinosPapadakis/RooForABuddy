@@ -250,10 +250,12 @@
 }
 @media screen and (max-width: 768px) {
     body{
+        height: 100%;
         display: block;
         padding: 0;
     }
     .sign-up-container{
+      height: 100%;
         display: block;
         width: 100%;
         padding: 0;
