@@ -27,7 +27,7 @@
         </div>
         <div>
             <label class="sign-up-label">Confirm Password</label>
-            <input name="password" type="password" class="sign-up-input" id="myInput" required>
+            <input name="confirmation" type="password" class="sign-up-input" id="myInput1" required>
             <input class="box-password" type="checkbox" onclick="myFunction()"> Show Password
         </div>
         <div>
@@ -42,6 +42,13 @@
                 x.type = "password";
               }
             }
+            function myFunction() {
+              var x = document.getElementById("myInput1");
+              if (x.type === "password") {
+                x.type = "text";
+              } else {
+                x.type = "password";
+              }
         </script>
 
      </form>
