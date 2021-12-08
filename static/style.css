@@ -239,5 +239,10 @@
         display: block;
         padding: 0;
     }
+    .sign-up-right{
+      text-align:center;
+      margin: 0 auto;
+      max-width: 310px;
+    }
     
 } 
