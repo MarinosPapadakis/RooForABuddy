@@ -26,10 +26,10 @@
 
 {% block main %}
 
-    <form action="/foundanimal" method="POST"  class="sign-up-right">
+    <form action="/foundanimal" method="POST"  class="sign-up-right" enctype="multipart/form-data">
         <div>
             <label class="sign-up-label">Upload photo</label>         
-            <input type="file" name="file">
+            <input id="file" type="file" name="file">
         </div>
         <input id="latitude" name="latitude" type="hidden" value="" required>
         <input id="longitude" name="longitude" type="hidden" value="" required>
