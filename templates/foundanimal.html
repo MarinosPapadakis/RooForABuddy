@@ -1,0 +1,51 @@
+{% extends "layout.html" %}
+
+{% block head %}
+
+
+<script type="text/javascript">
+
+    document.addEventListener("DOMContentLoaded", function(){
+
+        if(navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(findLocation,onGeoError);
+        } else {
+            alert("No GPS support");
+        }
+        
+        function findLocation(position) {
+            document.getElementById("latitude").value=position.coords.latitude;
+            document.getElementById("longitude").value=position.coords.longitude;
+        }
+
+        function onGeoError(event) {
+            alert("Error code " + event.code + ". " + event.message);
+        }
+    }
+</script>   
+
+{% endblock %}
+
+{% block main %}
+
+<div class="sign-up-container">
+    <form action="/foundanimal" method="POST"  class="sign-up-right">
+        <div>
+            <label class="sign-up-label">Upload photo</label>         
+            <input type="file" name="photo">
+        </div>
+        <input id="latitude" name="latitude" type="hidden" value="" required>
+        <input id="longitude" name="longitude" type="hidden" value="" required>
+        <div>
+            <label class="sign-up-label">Info</label>         
+            <input name="info" type="text" class="sign-up-input" required>
+        </div>
+        <div>
+            <button type="submit" class="sign-up-button">Submit</button>
+        </div>
+
+
+    </form>
+</div>
+
+{% endblock %}

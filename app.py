@@ -1,6 +1,6 @@
 from flask import Flask, render_template, session, redirect, request
-from tempfile import mkdtemp
 from werkzeug.security import check_password_hash, generate_password_hash
+from werkzeug.utils import secure_filename
 from flask_session import Session
 import sqlite3, os
 
@@ -13,6 +13,9 @@ app.config["SESSION_PERMANENT"] = True
 
 # Define database name
 app.config["DB_NAME"] = "database.db"
+
+app.config["UPLOAD_EXTENSIONS"] = [".jpg", ".png", ".jpeg"]
+app.config["UPLOAD_PATH"] = "uploads"
 
 # Get Google MAP API from host
 MAPS_API = os.getenv("MAPS-API")
@@ -147,20 +150,38 @@ def foundanimal():
         cursor = connection.cursor()
 
         # Define user's credentials
-        username = request.form.get("username")
-        fullName = request.form.get("fullName")
-        email = request.form.get("email")
-        password = request.form.get("password")
-        confirmation = request.form.get("confirmation")
-        telephone = request.form.get("telephone")
+        photo = request.files["photo"]
+        latitude = request.form.get("latitude")
+        longitude = request.form.get("longitude")
+        info = request.form.get("info")
 
-        # Insert new user into database
-        cursor.execute("INSERT INTO users (username, hash, fullName, email, tel) VALUES (?, ?, ?, ?, ?)", (username, hash_pw, fullName, email, telephone))
-        connection.commit()
+        # Secure filename
+        filename = secure_filename(photo.filename)
 
-        # Close connection to database
-        cursor.close()
-        connection.close()
+        if filename != "":
+
+            # Get file extension
+            file_ext = os.path.splitext(filename)[1]
+
+            # Check for valid extensions
+            if file_ext not in app.config["UPLOAD_EXTENSIONS"]:
+                return ("Error! Not accepted file extension")
+
+            cPath = os.getcwd()
+            uPath = app.config["UPLOAD_PATH"]
+
+            upPath = f"{cPath}/{uPath}/{filename}".replace("\\", "/")
+
+            # Insert new pet into database
+            cursor.execute("INSERT INTO lostPets (userId, photo, latitude, longitude, info) VALUES (?, ?, ?, ?, ?)", (session["user_id"], upPath, latitude, longitude, info))
+            connection.commit()
+
+            # Save file
+            photo.save(upPath)
+
+            # Close connection to database
+            cursor.close()
+            connection.close()
 
         # Redirect user to login
         return redirect("/")
