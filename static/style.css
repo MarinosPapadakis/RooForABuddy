@@ -196,10 +196,10 @@
 .sign-up-link{
     color: rgb(255, 166, 0);
 }
-#myInput{
+.box-password {
   margin-top: 1rem;
   font: .9rem 'Fira Sans', sans-serif;
-  display: block;
+
 }
 
 .fa {
