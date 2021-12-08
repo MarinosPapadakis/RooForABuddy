@@ -172,6 +172,9 @@
       z-index: 1;
       display: flex;
     }
+    .nav-menu:hover{
+      background-color: #00fa7e;
+    }
     .nav-item{
       margin: 16px 0;
     }
