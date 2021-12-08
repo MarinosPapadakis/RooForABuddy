@@ -14,35 +14,27 @@
         </div>
         <div>
             <label class="sign-up-label">Password</label>
-            <span class="eye" onclick="myfunction()">
-                <i id="hide1" class="fas fa-eye"></i>
-                <i id="hide2" class="fas fa-eye-slash"></i>
-            </span>
-            <input name="password" id="myInput" type="password" class="sign-up-input" required>
+            <input name="password" type="password" class="sign-up-input" id="myInput" required>
+            <input type="checkbox" onclick="myFunction()">Show Password
+
+<script>
+function myFunction() {
+  var x = document.getElementById("myInput");
+  if (x.type === "password") {
+    x.type = "text";
+  } else {
+    x.type = "password";
+  }
+}
+</script>
+
         </div>
         <div>
             <button type="submit" class="sign-up-button">Login</button>
         </div>
-        <script>
-            function myfunction(){
-                var x = document.getElementById("myInput");
-                var y = document.getElementById("hide1");
-                var z = document.getElementById("hide2");
-
-                if(x.type === 'password'){
-                    X.type = "text";
-                    y.style.display = "block";
-                    z.style.display = "none"
-                }
-                else{
-                    x.type = 'password'
-                    y.style.display = "none";
-                    z.style.display = "block"
-                }
-            }
-        </script>
 
 
     </form>
-</div>
+
+
 {% endblock %}
