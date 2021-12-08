@@ -196,8 +196,8 @@
 .sign-up-container *{
     font-family: 'Poppins', sans-serif;
 }
-.sign-up-left,
 .sign-up-right {
+    height: 100%;
     padding: 40px;
 }
 .sing-up-title{
@@ -222,7 +222,6 @@
 }
 .sign-up-input{
     width: 100%;
-    height: 100%;
     padding: 0.75em;
     box-sizing: border-box;
     font-size: 11px;
@@ -257,7 +256,6 @@
     .sign-up-container{
         display: block;
         width: 100%;
-        height: 100%;
         padding: 0;
         
     }
