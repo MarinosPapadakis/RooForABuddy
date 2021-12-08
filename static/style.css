@@ -196,13 +196,17 @@
 .sign-up-link{
     color: rgb(255, 166, 0);
 }
-.eye {
+#eye{
   position: absolute;
+  right: 15px;
+  transform: translate(0,-50%);
+  top: 50%;
+  cursor: pointer;
 }
-#hide1 {
-  display: none;
+.fa {
+  font-size: 20px;
+  color: #7a797e;
 }
-
 .sign-up-label{
     /*bazei pano to name apo to input box */
     display: block;

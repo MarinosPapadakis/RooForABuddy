@@ -14,35 +14,29 @@
         </div>
         <div>
             <label class="sign-up-label">Password</label>
-            <span class="eye" onclick="myfunction()">
-                <i id="hide1" class="fas fa-eye"></i>
-                <i id="hide2" class="fas fa-eye-slash"></i>
+            <input name="password" type="password" class="sign-up-input" required>
+            <span>
+                <i class="fas fa-eye" aria-hidden="true" id="eye" onclick="toogle()"></i>
             </span>
-            <input name="password" id="myInput" type="password" class="sign-up-input" required>
         </div>
         <div>
             <button type="submit" class="sign-up-button">Login</button>
         </div>
-        <script>
-            function myfunction(){
-                var x = document.getElementById("myInput");
-                var y = document.getElementById("hide1");
-                var z = document.getElementById("hide2");
-
-                if(x.type === 'password'){
-                    X.type = "text";
-                    y.style.display = "block";
-                    z.style.display = "none"
-                }
-                else{
-                    x.type = 'password'
-                    y.style.display = "none";
-                    z.style.display = "block"
-                }
-            }
-        </script>
 
 
     </form>
-</div>
+    <script>
+        var state = false;
+        function toogle() {
+            if(state){
+                document.getElementById("password").attributes("type","password");
+                state = false
+            }
+            else{
+                document.getElementById("password").attributes("type","text");
+                state = true
+            }
+        }
+    </script>
+
 {% endblock %}
