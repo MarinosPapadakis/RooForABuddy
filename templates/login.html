@@ -15,9 +15,6 @@
         <div>
             <label class="sign-up-label">Password</label>
             <input name="password" type="password" class="sign-up-input" required>
-            <span>
-                <i class="fas fa-eye" aria-hidden="true" id="eye" onclick="toogle()"></i>
-            </span>
         </div>
         <div>
             <button type="submit" class="sign-up-button">Login</button>
@@ -25,18 +22,5 @@
 
 
     </form>
-    <script>
-        var state = false;
-        function toogle() {
-            if(state){
-                document.getElementById("password").attributes("type","password");
-                state = false
-            }
-            else{
-                document.getElementById("password").attributes("type","text");
-                state = true
-            }
-        }
-    </script>
 
 {% endblock %}
