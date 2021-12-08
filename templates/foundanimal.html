@@ -3,24 +3,22 @@
 {% block head %}
 
 
-<script type="text/javascript">
+<script type="text/javascript" defer>
 
-    document.addEventListener("DOMContentLoaded", function(){
 
-        if(navigator.geolocation) {
-            navigator.geolocation.getCurrentPosition(findLocation,onGeoError);
-        } else {
-            alert("No GPS support");
-        }
+    if(navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(findLocation,onGeoError);
+    } else {
+        alert("No GPS support");
+    }
         
-        function findLocation(position) {
-            document.getElementById("latitude").value=position.coords.latitude;
-            document.getElementById("longitude").value=position.coords.longitude;
-        }
+    function findLocation(position) {
+        document.getElementById("latitude").value=position.coords.latitude;
+        document.getElementById("longitude").value=position.coords.longitude;
+    }
 
-        function onGeoError(event) {
-            alert("Error code " + event.code + ". " + event.message);
-        }
+    function onGeoError(event) {
+        alert("Error code " + event.code + ". " + event.message);
     }
 </script>   
 
