@@ -15,6 +15,19 @@
         <div>
             <label class="sign-up-label">Password</label>
             <input name="password" type="password" class="sign-up-input" required>
+            <input type="checkbox" onclick="myFunction()">Show Password
+
+<script>
+function myFunction() {
+  var x = document.getElementById("myInput");
+  if (x.type === "password") {
+    x.type = "text";
+  } else {
+    x.type = "password";
+  }
+}
+</script>
+
         </div>
         <div>
             <button type="submit" class="sign-up-button">Login</button>
@@ -22,5 +35,6 @@
 
 
     </form>
+
 
 {% endblock %}
