@@ -256,11 +256,6 @@
     .background-image {
       background-image: url(../static/images/login\ screen.png);
       background-repeat: no-repeat;
-      position:absolute;
-      top:0px;
-      right:0px;
-      bottom:0px;
-      left:0px;
       background-attachment: fixed;
       background-size: cover;
      
