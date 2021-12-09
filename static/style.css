@@ -256,8 +256,12 @@
       max-width: 1000px;
     }
     .background-image {
-      max-height: max-content;
-      max-width: max-content;
+      background-color: cyan;
+      position:absolute;
+      top:0px;
+      right:0px;
+      bottom:0px;
+      left:0px;
     }
     
 } 
