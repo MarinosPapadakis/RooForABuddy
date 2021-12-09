@@ -187,8 +187,6 @@
 }
 .background-image {
   background-image: url(../static/images/login\ screen.png);
-  height: auto;
-  width: auto;
   background-repeat: no-repeat;
 }
 .sing-up-title{
@@ -259,6 +257,10 @@
       text-align:left;
       margin: 0 auto;
       max-width: 1000px;
+    }
+    .background-image {
+      height: auto;
+      width: auto;
     }
     
 } 
