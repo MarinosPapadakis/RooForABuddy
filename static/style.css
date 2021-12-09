@@ -250,6 +250,7 @@
         padding: 0;
     }
     .sign-up-right{
+      background-image: url(../static/images/login\ screen.png);
       text-align:left;
       margin: 0 auto;
       max-width: 1000px;
