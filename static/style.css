@@ -187,6 +187,8 @@
 }
 .background-image {
   background-image: url(../static/images/login\ screen.png);
+  height: auto;
+  width: auto;
   background-repeat: no-repeat;
 }
 .sing-up-title{
