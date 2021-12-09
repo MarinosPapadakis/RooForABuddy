@@ -201,7 +201,9 @@
   font: .9rem 'Fira Sans', sans-serif;
 
 }
-
+.background-image {
+    background-color: cyan;      
+}
 .fa {
   font-size: 20px;
   color: #7a797e;
