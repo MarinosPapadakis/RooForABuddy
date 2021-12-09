@@ -186,6 +186,7 @@
     padding: 40px;
 }
 .background-image {
+  background-image: url(../static/images/login\ screen.png);
   background-repeat: no-repeat;
 }
 .sing-up-title{
