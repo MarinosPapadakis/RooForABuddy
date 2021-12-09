@@ -185,6 +185,9 @@
     height: 100%;
     padding: 40px;
 }
+.background-image {
+  background-repeat: no-repeat;
+}
 .sing-up-title{
     color: #009578;
     margin-top: 0;
