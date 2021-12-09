@@ -199,7 +199,6 @@
 .box-password {
   margin-top: 1rem;
   font: .9rem 'Fira Sans', sans-serif;
-
 }
 .background-image {
     background-color: cyan;      
@@ -255,6 +254,10 @@
       text-align:left;
       margin: 0 auto;
       max-width: 1000px;
+    }
+    .background-image {
+      max-height: max-content;
+      max-width: max-content;
     }
     
 } 
