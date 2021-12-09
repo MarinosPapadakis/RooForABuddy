@@ -182,6 +182,8 @@
     /*Register */  
 
 .sign-up-right {
+    background-image: url(../static/images/login\ screen.png);
+    background-repeat: no-repeat;
     height: 100%;
     padding: 40px;
 }
