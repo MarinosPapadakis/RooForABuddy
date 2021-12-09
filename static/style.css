@@ -253,12 +253,6 @@
       margin: 0 auto;
       max-width: 1000px;
     }
-    .background-image {
-      background-image: url(../static/images/login\ screen.png);
-      background-repeat: no-repeat;
-      background-attachment: fixed;
-      background-size: cover;
-     
-    }
+  
     
 } 
