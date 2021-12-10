@@ -255,4 +255,10 @@
     }
   
     
-} 
+}
+
+.background-image {
+  background-image: url(../static/images/login\ screen.png);
+  background-position: center top;
+  background-size: 100% 95%;
+}
