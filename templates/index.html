@@ -45,7 +45,7 @@ type="text/javascript"></script>
         });
 
         google.maps.event.addListener(googleMarker[{{i}}], "click", () => {
-            infowindow.open(map, marker);
+            infowindow.open(map, googleMarker[{{i}}]);
         });
         {% endfor %}
     }
