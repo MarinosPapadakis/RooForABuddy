@@ -20,6 +20,9 @@ app.config["UPLOAD_PATH"] = "static/uploads"
 # Get Google MAP API from host
 MAPS_API = os.getenv("MAPS-API")
 
+# Get Google MAP ID from host
+MAP_ID = os.getenv("MAP-ID")
+
 # Configure session
 Session(app)
 
@@ -31,7 +34,7 @@ def index():
     cursor = connection.cursor()
 
     # Query database for markers
-    cursor.execute("SELECT photo, latitude, longitude, info FROM places")
+    cursor.execute("SELECT photo, latitude, longitude, info FROM lostPets")
     markers = cursor.fetchall()
 
     return render_template("index.html", len=len(markers), markers=markers, MAPS_API=MAPS_API)
