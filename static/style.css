@@ -30,7 +30,6 @@
     text-decoration: none;
   }
   .navbar1{
-    margin-top: 8px;
     min-height: 50px;
     display: flex;
     justify-content: space-between;
@@ -38,6 +37,7 @@
     padding: 0 24px;
   } 
   .nav-branding{
+    margin-top: 8px;
     font-size: 2rem;
   }
   .nav-menu{
