@@ -78,7 +78,7 @@
     position: fixed;
     bottom: 0;
     width: 100%;
-    height: 55px;
+    height: 45px;
     box-shadow: 0 0 3px black;
     background-color: white;
     display: flex;
@@ -136,7 +136,7 @@
       border-radius: 50px;
     }
     .sticky a {
-      font-size: 7px;
+      font-size: 20px;
     }
     .navbar{
       padding: 5px 20px;
