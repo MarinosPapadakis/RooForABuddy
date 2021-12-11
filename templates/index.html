@@ -20,6 +20,9 @@ type="text/javascript"></script>
     }
     
     function initMap(position) {
+
+        var googleMarker = [];
+
         map = new google.maps.Map(document.getElementById('map'), {
             mapId: "{{MAP_ID}}",
             center: {lat: position.coords.latitude, lng: position.coords.longitude},
@@ -27,7 +30,7 @@ type="text/javascript"></script>
         });
 
         {% for i in range(0,len) %}
-        new google.maps.Marker({
+        googleMarker[{{i}}] = new google.maps.Marker({
             position: {lat: {{markers[i][1]}}, lng: {{markers[i][2]}}},
             map,
             icon: {
@@ -37,11 +40,11 @@ type="text/javascript"></script>
             animation: google.maps.Animation.DROP
         });
 
-        const infowindow = new google.maps.InfoWindow({
+        var infowindow = new google.maps.InfoWindow({
             content: "{{markers[i][3]}}",
         });
 
-        marker.addListener("click", () => {
+        google.maps.event.addListener(googleMarker[{{i}}], "click", () => {
             infowindow.open(map, marker);
         });
         {% endfor %}
