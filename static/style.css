@@ -35,9 +35,10 @@
     justify-content: space-between;
     align-items: center;
     padding: 0 25px;
-    position: -webkit-sticky;
-    position: sticky;
+    position: fixed;
     top: 0;
+    overflow-x: auto;
+    overflow: hidden;
   } 
   .nav-branding{
     margin-top: 8px;
