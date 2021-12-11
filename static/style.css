@@ -139,13 +139,6 @@
     .sticky a {
       font-size: 20px;
     }
-    .navbar1{
-      display: block;
-      position: fixed;
-      bottom: 0;
-      left: 0;
-      display: flex;
-    }
   }
   /* header */
   @media(max-width:768px){
