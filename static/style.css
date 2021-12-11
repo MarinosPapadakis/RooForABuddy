@@ -35,6 +35,8 @@
     justify-content: space-between;
     align-items: center;
     padding: 0 25px;
+    position: sticky;
+    top: 50px;
   } 
   .nav-branding{
     margin-top: 8px;
