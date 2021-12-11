@@ -173,7 +173,7 @@
       display: flex;
     }
     .nav-item{
-      margin: 16px 0;
+      margin: 8px 8px;
     }
     .nav-menu.active{
       left: 0;
