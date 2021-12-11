@@ -21,7 +21,7 @@ type="text/javascript"></script>
     
     function initMap(position) {
         map = new google.maps.Map(document.getElementById('map'), {
-            mapId: {{MAP_ID}},
+            mapId: "{{MAP_ID}}",
             center: {lat: position.coords.latitude, lng: position.coords.longitude},
             zoom: 16
         });
