@@ -37,7 +37,7 @@ def index():
     cursor.execute("SELECT photo, latitude, longitude, info FROM lostPets")
     markers = cursor.fetchall()
 
-    return render_template("index.html", len=len(markers), markers=markers, MAPS_API=MAPS_API)
+    return render_template("index.html", len=len(markers), markers=markers, MAPS_API=MAPS_API, MAP_ID=MAP_ID)
 
 @app.route("/register", methods=["GET", "POST"])
 def register():
