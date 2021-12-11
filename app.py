@@ -15,7 +15,7 @@ app.config["SESSION_PERMANENT"] = True
 app.config["DB_NAME"] = "database.db"
 
 app.config["UPLOAD_EXTENSIONS"] = [".jpg", ".png", ".jpeg"]
-app.config["UPLOAD_PATH"] = "uploads"
+app.config["UPLOAD_PATH"] = "static/uploads"
 
 # Get Google MAP API from host
 MAPS_API = os.getenv("MAPS-API")
@@ -150,7 +150,7 @@ def foundanimal():
         cursor = connection.cursor()
 
         # Define user's credentials
-        photo = request.files["file", False]
+        photo = request.files["file"]
         latitude = request.form.get("latitude")
         longitude = request.form.get("longitude")
         info = request.form.get("info")
@@ -167,10 +167,9 @@ def foundanimal():
             if file_ext not in app.config["UPLOAD_EXTENSIONS"]:
                 return ("Error! Not accepted file extension")
 
-            cPath = os.getcwd()
             uPath = app.config["UPLOAD_PATH"]
 
-            upPath = f"{cPath}/{uPath}/{filename}".replace("\\", "/")
+            upPath = f"{uPath}/{filename}"
 
             # Insert new pet into database
             cursor.execute("INSERT INTO lostPets (userId, photo, latitude, longitude, info) VALUES (?, ?, ?, ?, ?)", (session["user_id"], upPath, latitude, longitude, info))
