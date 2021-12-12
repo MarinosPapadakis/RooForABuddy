@@ -2,13 +2,15 @@ from flask import Flask, render_template, session, redirect, request
 from werkzeug.security import check_password_hash, generate_password_hash
 from werkzeug.utils import secure_filename
 from flask_session import Session
-import sqlite3, os
+from flask_mail import Mail, Message 
+from extras import login_required
+import sqlite3, os, random
 
 # Configure application
 app = Flask(__name__)
 
 app.config["SECRET_KEY"] = os.getenv("SECRET-KEY")
-app.config['SESSION_TYPE'] = "filesystem"
+app.config["SESSION_TYPE"] = "filesystem"
 app.config["SESSION_PERMANENT"] = True
 
 # Define database name
@@ -16,6 +18,13 @@ app.config["DB_NAME"] = "database.db"
 
 app.config["UPLOAD_EXTENSIONS"] = [".jpg", ".png", ".jpeg"]
 app.config["UPLOAD_PATH"] = "static/uploads"
+
+app.config["MAIL_SERVER"]= os.getenv("MAIL-SERVER")
+app.config["MAIL_PORT"] = os.getenv("MAIL-PORT")
+app.config["MAIL_USERNAME"] = os.getenv("MAIL-USERNAME")
+app.config["MAIL_PASSWORD"] = os.getenv("MAIL-PASSWORD")
+app.config["MAIL_USE_TLS"] = False
+app.config["MAIL_USE_SSL"] = True
 
 # Get Google MAP API from host
 MAPS_API = os.getenv("MAPS-API")
@@ -25,6 +34,8 @@ MAP_ID = os.getenv("MAP-ID")
 
 # Configure session
 Session(app)
+
+mail = Mail(app)
 
 @app.route("/")
 def index():
@@ -101,6 +112,7 @@ def register():
         return render_template("register.html")
 
 @app.route("/logout")
+@login_required
 def logout():
 
     # Forget any user_id
@@ -143,6 +155,7 @@ def login():
         return render_template("login.html")
 
 @app.route("/foundanimal", methods=["GET", "POST"])
+@login_required
 def foundanimal():
 
     # If method is POST
@@ -191,3 +204,102 @@ def foundanimal():
     else:
 
         return render_template("foundanimal.html")
+
+@app.route("/changepassword", methods=["GET", "POST"])
+@login_required
+def changepassword():
+
+    # If request method is POST
+    if request.method == "POST":
+
+        # Connect to database
+        connection = sqlite3.connect(app.config["DB_NAME"])
+        cursor = connection.cursor()
+
+        # Define user id
+        userid = session["user_id"]
+
+        # Get post information
+        oldpassword = request.form.get("oldpassword")
+        newpassword = request.form.get("newpassword")
+        confirmation = request.form.get("confirmation")
+
+        # Check if passswords match
+        if newpassword != confirmation:
+            return("Passwords do not match")
+
+        # Get user's hash
+        cursor.execute("SELECT hash FROM users WHERE id=?", (userid, ))
+        oldhash = cursor.fetchall()[0][0]
+
+        # Check if old password matches
+        if not check_password_hash(oldhash, oldpassword):
+            return("Incorrect old password")
+
+        # Generate new hash
+        newhash = generate_password_hash(newpassword)
+
+        # Update user's hash
+        cursor.execute("UPDATE users SET hash = ? WHERE id = ?", (newhash, userid))
+        connection.commit()
+
+        # Close connection to the database
+        cursor.close()
+        connection.close()
+
+        return redirect("/login")
+
+    else:
+        return render_template("changepassword.html")
+
+@app.route("/changeemail", methods=["GET", "POST"])
+@login_required
+def changeemail():
+
+
+    # If request method is POST
+    if request.method == "POST":
+
+        # Connect to database
+        connection = sqlite3.connect(app.config["DB_NAME"])
+        cursor = connection.cursor()
+
+        # Check if pin is correct
+        if int(request.form.get("pin")) != session["CHANGE_PASSWORD_PIN"]:
+            return("Wrong pin")
+        # Update email
+        else:
+            cursor.execute("UPDATE users SET email=? WHERE id=?", (request.form.get("newemail"), session["user_id"]))
+            connection.commit()
+        
+        # Close connection to database
+        cursor.close()
+        connection.close()
+
+        return redirect("/login")
+
+    else:
+
+        # Generate pin
+        session["CHANGE_PASSWORD_PIN"] = int(random.randint(999, 9999))
+
+        # Connect to database
+        connection = sqlite3.connect(app.config["DB_NAME"])
+        cursor = connection.cursor()
+
+        # Get user pin
+        pin = session["CHANGE_PASSWORD_PIN"]
+
+        # Get user's current email
+        cursor.execute("SELECT email FROM users WHERE id=?", (session["user_id"],))
+        currentEmail = cursor.fetchall()[0][0]
+
+        msg = Message("RooForABuddy Password Change", sender=app.config["MAIL_USERNAME"], recipients=[currentEmail])
+        msg.body = f"{pin}\n If you did not request this change you should change your password immediately."
+        mail.send(msg)
+
+        # Close connection to database
+        cursor.close()
+        connection.close()
+
+        return render_template("changeemail.html", currentEmail=currentEmail)
