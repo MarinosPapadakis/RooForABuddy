@@ -2,16 +2,20 @@
 
 {% block main %}
 
-<p class="sing-up-title">Change Email</p>
+<form action="/changeemail" method="POST" class="sign-up-right">
 <div>   
     <label class="sign-up-label">New Email Address</label>
-    <input name="email" type="email" class="sign-up-input" required>
+    <input name="newemail" type="email" class="sign-up-input" required>
 </div>
 <div>
-    <label class="sign-up-label">Code</label>
+    <label class="sign-up-label">Pin</label>
     <input name="Code" type="number" class="sign-up-input" required>
 </div>
 
+<div>
+    <button type="submit" class="sign-up-button">Submit</button>
+</div>
 
+</form>
 
 {% endblock %}

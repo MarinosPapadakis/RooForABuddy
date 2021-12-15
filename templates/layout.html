@@ -20,6 +20,23 @@
         <nav class="navbar1">
           <a href="/" class="nav-branding"><img width="75%" height="75%" src="..\static\images\full logo v2.png" alt="header image"></a>
           <ul class="nav-menu">
+            {% if session.user_id %}
+            <li class="nav-item">
+              <a href="/changeemail" class="nav-link">Change email</a>
+            </li>
+            <li class="nav-item">
+              <a href="/changepassword" class="nav-link">Change password</a>
+            </li>
+            <li class="nav-item">
+              <a href="/changetelephone" class="nav-link">Change telephone</a>
+            </li>
+          </ul>
+          <div class="hamburger">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+          </div>
+            {% else %}
             <li class="nav-item">
               <a href="/login" class="nav-link">Login</a>
             </li>
@@ -30,8 +47,8 @@
           <div class="hamburger">
             <span class="bar"></span>
             <span class="bar"></span>
-            <span class="bar"></span>
           </div>
+          {% endif %}
         </nav>
       </header>
         <script src="..\static\script.js"></script>
@@ -48,17 +65,10 @@
                 <i class="material-icons nav__icon">search</i>
                 <span class="nav__text">Found animal</span>
               </a>
-              {% if session.user_id %}
-              <a href="#" class="nav__link nav__link--active">
+              <a href="/lostanimals" class="nav__link nav__link--active">
                 <i class="material-icons nav__icon">person</i>
-                <span class="nav__text">Profile</span>
+                <span class="nav__text">Lost animals</span>
               </a>
-              {% else %}
-              <a href="/login" class="nav__link nav__link--active">
-                <i class="material-icons nav__icon">person</i>
-                <span class="nav__text">Login</span>
-              </a>
-              {% endif %}
             </nav>
           </footer>
     </body>

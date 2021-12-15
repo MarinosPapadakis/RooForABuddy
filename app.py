@@ -45,10 +45,30 @@ def index():
     cursor = connection.cursor()
 
     # Query database for markers
-    cursor.execute("SELECT photo, latitude, longitude, info FROM lostPets")
+    cursor.execute("SELECT photo, latitude, longitude, info FROM foundAnimals")
     markers = cursor.fetchall()
 
     return render_template("index.html", len=len(markers), markers=markers, MAPS_API=MAPS_API, MAP_ID=MAP_ID)
+
+@app.route("/lostpets")
+def lostPets():
+
+    # Connect to database
+    connection = sqlite3.connect(app.config["DB_NAME"])
+    cursor = connection.cursor()
+
+    tels = []
+
+    # Query database for pets
+    cursor.execute("SELECT userId, photo, location, info info FROM foundAnimals")
+    pets = cursor.fetchall()
+
+    for i in range(len(pets)):
+        
+        cursor.execute("SELECT tel FROM users WHERE id=?", (pets[i][0],))
+        tels.append(cursor.fetchall()[0][0])
+
+    return render_template("index.html", len=len(pets), pets=pets, tels=tels)
 
 @app.route("/register", methods=["GET", "POST"])
 def register():
@@ -188,7 +208,7 @@ def foundanimal():
             upPath = f"{uPath}/{filename}"
 
             # Insert new pet into database
-            cursor.execute("INSERT INTO lostPets (userId, photo, latitude, longitude, info) VALUES (?, ?, ?, ?, ?)", (session["user_id"], upPath, latitude, longitude, info))
+            cursor.execute("INSERT INTO foundAnimals (userId, photo, latitude, longitude, info) VALUES (?, ?, ?, ?, ?)", (session["user_id"], upPath, latitude, longitude, info))
             connection.commit()
 
             # Save file
@@ -204,6 +224,56 @@ def foundanimal():
     else:
 
         return render_template("foundanimal.html")
+
+@app.route("/lostpet", methods=["GET", "POST"])
+@login_required
+def lostpet():
+
+    # If method is POST
+    if request.method == "POST":
+
+        # Connect to database
+        connection = sqlite3.connect(app.config["DB_NAME"])
+        cursor = connection.cursor()
+
+        # Define user's credentials
+        photo = request.files["file"]
+        location = request.form.get("location")
+        info = request.form.get("info")
+
+        # Secure filename
+        filename = secure_filename(photo.filename)
+
+        if filename != "":
+
+            # Get file extension
+            file_ext = os.path.splitext(filename)[1]
+
+            # Check for valid extensions
+            if file_ext not in app.config["UPLOAD_EXTENSIONS"]:
+                return ("Error! Not accepted file extension")
+
+            uPath = app.config["UPLOAD_PATH"]
+
+            upPath = f"{uPath}/{filename}"
+
+            # Insert new pet into database
+            cursor.execute("INSERT INTO lostPets (userId, location, photo, info) VALUES (?, ?, ?, ?)", (session["user_id"], location, upPath, info))
+            connection.commit()
+
+            # Save file
+            photo.save(upPath)
+
+            # Close connection to database
+            cursor.close()
+            connection.close()
+
+        # Redirect user to login
+        return redirect("/")
+
+    else:
+
+        return render_template("lostpet.html")
 
 @app.route("/changepassword", methods=["GET", "POST"])
 @login_required
@@ -303,3 +373,33 @@ def changeemail():
         connection.close()
 
         return render_template("changeemail.html", currentEmail=currentEmail)
+
+@app.route("/changetelephone", methods=["GET", "POST"])
+@login_required
+def changetelephone():
+
+    # If request method is POST
+    if request.method == "POST":
+
+        # Connect to database
+        connection = sqlite3.connect(app.config["DB_NAME"])
+        cursor = connection.cursor()
+
+        # Define user id
+        userid = session["user_id"]
+
+        # Get post information
+        newTelephone = request.form.get("newtelephone")
+
+        # Update user's hash
+        cursor.execute("UPDATE users SET tel = ? WHERE id = ?", (newTelephone, userid))
+        connection.commit()
+
+        # Close connection to the database
+        cursor.close()
+        connection.close()
+
+        return redirect("/")
+
+    else:
+        return render_template("changetelephone.html")

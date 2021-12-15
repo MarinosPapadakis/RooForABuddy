@@ -1,11 +1,15 @@
 {% extends "layout.html" %}
 
 {% block main %}
-
-<p class="sing-up-title">Change Telephone</p>
+<form action="/changetelephone" method="POST" class="sign-up-right">
+<p class="sing-up-title">Change Telephone number</p>
 <div>
-    <label class="sign-up-label">New Telephone</label>         
-    <input name="telephone" type="tel" class="sign-up-input" required>
+    <label class="sign-up-label">New Telephone number</label>         
+    <input name="newtelephone" type="tel" class="sign-up-input" required>
 </div>
+<div>
+    <button type="submit" class="sign-up-button">Submit</button>
+</div>
+</form>
 
 {% endblock %}
