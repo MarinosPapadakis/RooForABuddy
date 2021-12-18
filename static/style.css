@@ -271,7 +271,7 @@
   padding: auto;
   border-radius: 25px;
   height: 138px;
-  width: 173px;
+  width: 50%;
   box-sizing:border-box;
   margin: 0px 10px 10px;
   overflow: hidden;
@@ -283,15 +283,11 @@
 
 .info{
   margin-top: 0px;
-  margin-left: 54%;
+  margin-left: 50%;
   text-align: left;
 }
-.title{
-  margin-top: 30px;
-  margin-left: 80px;
-}
 .border_{
-  padding: 7px;
+  padding: 5px;
   border-radius: 25px;
   border: 3px solid rgb(143, 134, 134);
   margin-left: 5px;
