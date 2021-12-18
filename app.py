@@ -60,7 +60,7 @@ def lostPets():
     tels = []
 
     # Query database for pets
-    cursor.execute("SELECT userId, photo, location, info info FROM foundAnimals")
+    cursor.execute("SELECT userId, photo, location, info FROM lostPets")
     pets = cursor.fetchall()
 
     for i in range(len(pets)):
@@ -68,7 +68,7 @@ def lostPets():
         cursor.execute("SELECT tel FROM users WHERE id=?", (pets[i][0],))
         tels.append(cursor.fetchall()[0][0])
 
-    return render_template("index.html", len=len(pets), pets=pets, tels=tels)
+    return render_template("lostpets.html", len=len(pets), pets=pets, tels=tels)
 
 @app.route("/register", methods=["GET", "POST"])
 def register():
