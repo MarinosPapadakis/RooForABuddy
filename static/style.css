@@ -267,38 +267,26 @@
 }
 /*Lost animals*/
 
-.image_{
-  padding: auto;
-  border-radius: 25px;
-  height: 138px;
-  width: 50%;
-  box-sizing:border-box;
-  overflow: hidden;
-  display: inline-block;
-  display: block;
-  margin: 10px 10px 10px;
+image_ {
   float: left;
+  width: 50%;
+  padding: 5px;
+  border-radius: 25px;
 }
 
-.info{
-  margin-top: 0px;
-  margin-left: 50%;
-  text-align: left;
+/* Clearfix (clear floats) */
+.border_::after {
+  content: "";
+  clear: both;
+  display: table;
 }
 .border_{
-  padding: 6px;
-  border-radius: 25px;
-  border: 3px solid rgb(143, 134, 134);
-  margin-left: 5px;
-  margin-right: 5px;
-  margin-bottom: 15px;
-  height: 160px;
+    background-color: rgb(143, 134, 134);
+    border-radius: 25px;
 }
-
-.border_,.info-text,.info,#name{
-  background-color: rgb(143, 134, 134);
+.name{
+    margin: auto;
 }
-#name{
-  text-align: center;
-  margin-bottom: 0px;
+.info{
+    margin: auto;
 }
