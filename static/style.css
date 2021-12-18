@@ -266,7 +266,9 @@
   background-size: 100% 95%;
 }
 /*Lost animals*/
-
+.here{
+  color: #00fa7e;
+}
 .image_ {
   float: left;
   width: 38%;
