@@ -269,7 +269,7 @@
 
 .image_ {
   float: left;
-  width: 30%;
+  width: 35%;
   padding: 5px;
   border-radius: 25px;
 }
@@ -286,7 +286,8 @@
     margin-bottom: 15px;
 }
 #name{
-    margin: auto;
+    margin-bottom: 15px;
+    text-align: center;
 }
 .info{
     margin: auto;
