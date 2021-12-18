@@ -269,7 +269,7 @@
 
 .image_ {
   float: left;
-  width: 40%;
+  width: 30%;
   padding: 5px;
   border-radius: 25px;
 }
@@ -285,7 +285,7 @@
     border-radius: 25px;
     margin-bottom: 15px;
 }
-.name{
+#name{
     margin: auto;
 }
 .info{
