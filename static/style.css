@@ -293,3 +293,10 @@
 .info{
     margin-left: 15px;
 }
+.button_{
+  margin-left: 90%;
+  margin-bottom: 3%;
+  font-size: 15px;
+  background-color: #b3b3b3;
+  border-color: #bbbbbb;
+ }
