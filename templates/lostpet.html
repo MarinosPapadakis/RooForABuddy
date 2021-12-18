@@ -1,0 +1,25 @@
+{% extends "layout.html" %}
+
+{% block main %}
+
+    <form action="/lostpet" method="POST"  class="sign-up-right" enctype="multipart/form-data">
+        <div>
+            <label class="sign-up-label">Upload photo</label>         
+            <input id="file" type="file" name="file">
+        </div>
+        <div>
+            <input id="location" name="location" type="text" required>
+        </div>
+        <div>
+            <label class="sign-up-label">Info</label>         
+            <input name="info" type="text" class="sign-up-input" required>
+        </div>
+        <div>
+            <button type="submit" class="sign-up-button">Submit</button>
+        </div>
+
+
+    </form>
+
+
+{% endblock %}
