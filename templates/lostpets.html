@@ -6,15 +6,19 @@
         <p>List of lost pets:</p>
     </div>
 
+    {% for i in range(0,len) %}
+
     <div class="border_">
         <div class="image_place">
-        <img class="image_" src="#" alt="Zoo">
+        <img class="image_" src="{{pets[i][i]}}" alt="Zoo">
     </div>
     
     
     <div class="info">
         <h3 id="name">Name</h3>
-        <p>I have a pet dog named Jacky. It is a very beautiful faithful dog. it always accompanies me wherever I go. One day, I went to a. </p>
+        <p>{{pets[i][3]}}<br><b>Telephone number: </b>{{tel[i]}}</p>
     </div>
+
+    {% endfor %}
 
 {% endblock %}
