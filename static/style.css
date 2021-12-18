@@ -242,6 +242,22 @@
     border: none;
     outline: none;
 }
+.sign-up-button_ {
+  display: block;
+  margin-left: 15px;
+  margin-top: 15px;
+  padding: 0.8em 1.6em;
+  font-weight: bold;
+  font-size: 1.2em;
+  background: #009578;
+  color: #ffffff;
+  cursor: pointer;
+  border: none;
+  outline: none;
+}
+.sign-up-button_:active {
+  background: #014739;
+}
 .sign-up-button:active {
     background: #014739;
 }
