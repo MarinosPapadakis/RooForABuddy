@@ -1,3 +1,5 @@
+var passFields = [];
+
 const hamburger = document.querySelector(".hamburger");
 const navMenu = document.querySelector(".nav-menu");
 
@@ -27,8 +29,9 @@ function showPassword() {
   var inputs = document.getElementsByTagName("input");
   for (var i=0; i<inputs.length; i++) {
     if (inputs[i].type.toLowerCase() === "password") {
+      passFields.push(inputs[i]);
       inputs[i].type = "text";
-    } else {
+    } else if (passFields.includes(inputs[i])) {
       inputs[i].type = "password"
     }
   }
