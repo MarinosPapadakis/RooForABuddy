@@ -283,6 +283,7 @@
 .border_{
     background-color: rgb(143, 134, 134);
     border-radius: 25px;
+    margin-bottom: 15px;
 }
 .name{
     margin: auto;
