@@ -28,21 +28,11 @@
         <div>
             <label class="sign-up-label">Confirm Password</label>
             <input name="confirmation" type="password" class="sign-up-input" id="myInput1" required>
-            <input class="box-password" type="checkbox" onclick="myFunction()"> Show Password
+            <input class="box-password" type="checkbox" onclick="showPassword()"> Show Password
         </div>
         <div>
             <button type="submit" class="sign-up-button">Sign up</button>
         </div>
-        <script>
-            function myFunction() {
-              var x = document.getElementById("myInput");
-              if (x.type === "password") {
-                x.type = "text";
-              } else {
-                x.type = "password";
-              }
-            }
-        </script>
 
 
      

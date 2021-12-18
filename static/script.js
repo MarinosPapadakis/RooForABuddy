@@ -10,3 +10,27 @@ document.querySelectorAll(".nav-link").forEach(n => n.addEventListener("click", 
   hamburger.classList.remove("active");
   navMenu.classList.remove("active");
 }))
+
+function getPwdInputs() {
+  var ary = [];
+  var inputs = document.getElementsByTagName("input");
+  for (var i=0; i<inputs.length; i++) {
+    if (inputs[i].type.toLowerCase() === "password") {
+      ary.push(inputs[i]);
+    }
+  }
+  return ary;
+}
+
+function showPassword() {
+
+  var inputs = document.getElementsByTagName("input");
+  for (var i=0; i<inputs.length; i++) {
+    if (inputs[i].type.toLowerCase() === "password") {
+      inputs[i].type = "text";
+    } else {
+      inputs[i].type = "password"
+    }
+  }
+
+}
