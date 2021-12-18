@@ -287,9 +287,10 @@
 }
 #name{
     margin-left: 15px;
-    margin-bottom: 15px;
+    margin-bottom: 10px;
     text-align: center;
 }
 .info{
+    width: 100%;
     margin-left: 15px;
 }
