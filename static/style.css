@@ -241,6 +241,7 @@
     cursor: pointer;
     border: none;
     outline: none;
+    height: 100%;
 }
 .sign-up-button:active {
     background: #014739;
@@ -277,7 +278,7 @@
   border-radius: 25px;
 }
 
-/* Clearfix (clear floats) */
+/* Border */
 .border_::after {
   content: "";
   clear: both;
