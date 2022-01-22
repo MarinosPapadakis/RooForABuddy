@@ -197,7 +197,6 @@
     font-weight: 900;
 }
 .sing-up-title1{
-  float: left;
   color: #009578;
   margin-top: 0;
   margin-bottom: 20px;
@@ -253,8 +252,7 @@
     height: 100%;
 }
 .sign-up-button1 {
-  float: right;
-  display: block;
+  display: inline;
   margin-left: auto;
   padding: 0.8em 1.6em;
   font-weight: bold;
