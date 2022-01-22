@@ -295,7 +295,7 @@
 .background-image {
   background-image: url(../static/images/login\ screen.png);
   background-position: center top;
-  background-size: 100% 95%;
+  background-size: 100% 100%;
 }
 /*Lost animals*/
 .here{
@@ -330,7 +330,7 @@
 .divider {
   display: block;
   content: "";
-  margin-top: 16%;
+  margin-top: 6%;
   visibility: hidden;
 }
 .info {
