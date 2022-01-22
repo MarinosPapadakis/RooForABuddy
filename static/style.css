@@ -330,7 +330,7 @@
 .divider {
   display: block;
   content: "";
-  margin-top: 6%;
+  margin-top: 10%;
   visibility: hidden;
 }
 .info {
