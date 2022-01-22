@@ -222,10 +222,16 @@
     /*bazei pano to name apo to input box */
     display: block;
     /* dimiourgoume keno*/
-    margin-top: 15%;
+    margin-top: 15px;
     /* To keno anamesa apo to name kai to input box*/
     margin-bottom: 5px;
     font-weight: bold;
+}
+.sign-up-label1{
+  display: block;
+  margin-top: 15%;
+  margin-bottom: 5px;
+  font-weight: bold;
 }
 .sign-up-input{
     width: 100%;
