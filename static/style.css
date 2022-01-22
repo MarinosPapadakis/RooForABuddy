@@ -228,10 +228,10 @@
     font-weight: bold;
 }
 .sign-up-label1{
-  display: block;
-  margin-top: 15%;
-  margin-bottom: 5px;
-  font-weight: bold;
+    display: block;
+    margin-top: 13%;
+    margin-bottom: 5px;
+    font-weight: bold;
 }
 .sign-up-input{
     width: 100%;
