@@ -323,11 +323,11 @@
   margin-bottom: 0px;
 }
 
-br {
+.divider {
   display: block;
   content: "";
   margin-top: 20%;
 }
-.info{
+.info {
     margin-left: 40%;
 }
