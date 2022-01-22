@@ -2,25 +2,26 @@
 
 {% block main %}
 
-    <p>List your lost pet <a href="/lostpet">here</a>!</p>
+    
 
-    <div class="sing-up-title">
+    <div class="sing-up-title1">
         <p>List of lost pets:</p>
     </div>
-
+    <button type="submit" class="sign-up-button1"><a href="/lostpet">Add</a></button>
     {% for i in range(0,len) %}
-
+    <a href="#">
     <div class="border_">
         <div class="image_place">
         <img class="image_" src="{{pets[i][1]}}" alt="Zoo">
-    </div>
+        </div>
     
     
     <div class="info">
         <h3 id="name">Name</h3>
         <p>{{pets[i][3]}}<br><b>Telephone number: </b><br><a href="tel:{{tels[i]}}">{{tels[i]}}</a></p>
     </div>
-
+    </div>
+    </a>
     {% endfor %}
 
     <br>

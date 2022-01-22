@@ -196,6 +196,14 @@
     font-family: 'Inconsolata', monospace;
     font-weight: 900;
 }
+.sing-up-title1{
+  color: #009578;
+  margin-top: 0;
+  margin-bottom: 20px;
+  font-size: 1.5em;
+  font-family: 'Inconsolata', monospace;
+  font-weight: 800;
+}
 .sign-up-link{
     color: rgb(255, 166, 0);
 }
@@ -241,6 +249,21 @@
     cursor: pointer;
     border: none;
     outline: none;
+    height: 100%;
+}
+.sign-up-button1 {
+  display: block;
+  margin-left: auto;
+  margin-top: 5px;
+  padding: 0.8em 1.6em;
+  font-weight: bold;
+  font-size: 1.2em;
+  background: #009578;
+  color: #ffffff;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  margin-bottom: 15px;
 }
 .sign-up-button:active {
     background: #014739;
@@ -266,46 +289,34 @@
   background-size: 100% 95%;
 }
 /*Lost animals*/
-
-.image_place{
-  margin: 4px 4px 4px;
-  padding: auto;
-  position: absolute;
-  top: 86px;
-  left: 0px;
+.here{
+  color: #00fa7e;
+  margin-bottom: 5px;
 }
-.image_{
-  padding: auto;
+.image_ {
+  float: left;
+  width: 38%;
+  padding: 5px;
   border-radius: 25px;
-  height: 138px;
-  width: 173px;
-  box-sizing:border-box;
-  margin: 0px 10px 10px;
-  overflow: hidden;
-  margin-top: 0;
-  display: inline-block;
-  display: block;
 }
 
-.info{
-  margin-top: 0px;
-  margin-left: 54%;
-  text-align: left;
-}
-.title{
-  margin-top: 30px;
-  margin-left: 80px;
+/* Border */
+.border_::after {
+  content: "";
+  clear: both;
+  display: table;
 }
 .border_{
-  padding: 7px;
-  border-radius: 25px;
-  border: 3px solid rgb(143, 134, 134);
-  margin-left: 5px;
-  margin-right: 5px;
+    background-color: #b3b3b3;
+    border-radius: 25px;
+    margin-top: 3px;
+    margin-bottom: 13px;
+    max-width: 98%;
 }
+#name{
+    margin-left: 53px;
+    margin-bottom: 10px;
 
-.border_,.info-text,.info,#name{
-  background-color: rgb(143, 134, 134);
 }
 #name{
   text-align: center;
@@ -316,4 +327,7 @@ br {
   display: block;
   content: "";
   margin-top: 20%;
+}
+.info{
+    margin-left: 40%;
 }
