@@ -322,6 +322,7 @@
   display: block;
   content: "";
   margin-top: 10%;
+  visibility: hidden;
 }
 .info {
     margin-left: 40%;
