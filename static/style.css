@@ -318,11 +318,10 @@
     margin-bottom: 10px;
     text-align: center;
 }
-
 .divider {
   display: block;
   content: "";
-  margin-top: 50%;
+  margin-top: 10%;
 }
 .info {
     margin-left: 40%;
