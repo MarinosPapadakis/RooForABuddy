@@ -197,9 +197,10 @@
     font-weight: 900;
 }
 .sing-up-title1{
-  display: inline-block;
   color: #009578;
-  margin-top: 0;
+  margin-top: 13%;
+  line-height: 3.3em;
+  display: block;
   margin-bottom: 20px;
   font-size: 1.5em;
   font-family: 'Inconsolata', monospace;
@@ -254,7 +255,7 @@
 }
 .sign-up-button1 {
   float: right;
-  display: inline;
+  display: block;
   margin-right: 5px;
   padding: 0.8em 1.6em;
   font-weight: bold;
@@ -265,6 +266,7 @@
   border: none;
   outline: none;
   margin-bottom: 20px;
+  margin-top: 18px;
 }
 .sign-up-button:active {
     background: #014739;
@@ -322,9 +324,17 @@
 .divider {
   display: block;
   content: "";
-  margin-top: 14%;
+  margin-top: 16%;
   visibility: hidden;
 }
 .info {
     margin-left: 40%;
+}
+.a{
+    position: fixed;
+    top: 0;
+    background-color: #e9e9e9;
+    height: auto;
+    width: 100%;
+    z-index: 99;
 }
