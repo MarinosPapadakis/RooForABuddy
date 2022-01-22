@@ -21,6 +21,7 @@
   /* header */
   header{
     background-color: whitesmoke;
+    position: sticky;
   }
   li{
     list-style: none;
@@ -146,6 +147,9 @@
   }
   /* header */
   @media(max-width:768px){
+    .header{
+      position: sticky;
+    }
     .hamburger{
       display: block;
     }
