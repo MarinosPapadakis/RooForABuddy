@@ -196,6 +196,14 @@
     font-family: 'Inconsolata', monospace;
     font-weight: 900;
 }
+.sing-up-title1{
+  color: #009578;
+  margin-top: 0;
+  margin-bottom: 20px;
+  font-size: 1.5em;
+  font-family: 'Inconsolata', monospace;
+  font-weight: 800;
+}
 .sign-up-link{
     color: rgb(255, 166, 0);
 }
@@ -242,6 +250,20 @@
     border: none;
     outline: none;
     height: 100%;
+}
+.sign-up-button1 {
+  display: block;
+  margin-left: auto;
+  margin-top: 5px;
+  padding: 0.8em 1.6em;
+  font-weight: bold;
+  font-size: 1.2em;
+  background: #009578;
+  color: #ffffff;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  margin-bottom: 15px;
 }
 .sign-up-button:active {
     background: #014739;
