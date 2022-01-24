@@ -370,3 +370,8 @@
     width: 100%;
     z-index: 99;
 }
+.image-upload > input {
+  visibility: hidden;
+  width:0;
+  height:0
+}
