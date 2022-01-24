@@ -202,7 +202,7 @@
   line-height: 3.3em;
   display: block;
   margin-bottom: 20px;
-  font-size: 1.5em;
+  font-size: 1.7em;
   font-family: 'Ubuntu Medium', arial;
   font-weight: 800;
 }
@@ -349,7 +349,7 @@
     max-width: 98%;
 }
 #name{
-    margin-left: 60px;
+    margin-left: -30%;
     margin-bottom: 10px;
     text-align: center;
 }
@@ -375,4 +375,7 @@ input[type="file"] {
 }
 .changepassword{
   overflow: hidden;
+}
+.lostpets{
+  margin-left: 5px;
 }
