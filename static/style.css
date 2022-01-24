@@ -272,10 +272,22 @@
   border: none;
   outline: none;
   margin-bottom: 20px;
-  margin-top: 9px;
+  margin-top: 15px;
 }
 .sign-up-button2 {
   float: left;
+  display: block;
+  padding: 0.8em 1.6em;
+  font-weight: bold;
+  font-size: 1.2em;
+  background: #009578;
+  color: #ffffff;
+  cursor: pointer;
+  border: none;
+  outline: none;
+}
+.sign-up-button3 {
+  float: right;
   display: block;
   padding: 0.8em 1.6em;
   font-weight: bold;
