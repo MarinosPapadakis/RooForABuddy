@@ -198,7 +198,7 @@
 }
 .sing-up-title1{
   color: #007d4b;
-  margin-top: 13%;
+  margin-top: 14%;
   line-height: 3.3em;
   display: block;
   margin-bottom: 20px;
@@ -308,7 +308,7 @@
 }
 
 .background-image {
-  background-image: url(../static/images/login\ screen.png);
+  background-image: url(../static/images/loading\ screen.jpg);
   background-position: center top;
   background-size: 100% 100%;
 }
