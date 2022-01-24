@@ -277,8 +277,6 @@
 .sign-up-button2 {
   float: left;
   display: block;
-  margin-left: auto;
-  margin-top: 15px;
   padding: 0.8em 1.6em;
   font-weight: bold;
   font-size: 1.2em;
@@ -287,7 +285,6 @@
   cursor: pointer;
   border: none;
   outline: none;
-  height: 100%;
 }
 .sign-up-button:active {
     background: #014739;
@@ -308,7 +305,7 @@
 }
 
 .background-image {
-  background-image: url(../static/images/loading\ screen.jpg);
+  background-image: url(../static/images/login\ screen.jpg);
   background-position: center top;
   background-size: 100% 100%;
 }

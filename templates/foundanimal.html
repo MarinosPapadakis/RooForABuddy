@@ -28,17 +28,28 @@
 
     <form action="/foundanimal" method="POST"  class="sign-up-right" enctype="multipart/form-data">
         <div>
-            <label class="sign-up-label1">Upload photo</label>         
-            <input id="file" type="file" name="file">
+            <div class="sing-up-title1">
+                <p>Add Listing:</p>
+            </div>      
         </div>
         <input id="latitude" name="latitude" type="hidden" value="" required>
         <input id="longitude" name="longitude" type="hidden" value="" required>
+        <div>
+            <label class="sign-up-label">Name</label>         
+            <input name="name" type="text" class="sign-up-input" required>
+        </div>
+    <div>
+        <label class="sign-up-label">City</label>
+        <input id="location" name="location" type="text" required class="sign-up-input">
+   
+    <div>
         <div>
             <label class="sign-up-label">Info</label>         
             <input name="info" type="text" class="sign-up-input" required>
         </div>
         <div>
             <button type="submit" class="sign-up-button">Submit</button>
+            <input id="file" type="file" name="file">
         </div>
 
 
