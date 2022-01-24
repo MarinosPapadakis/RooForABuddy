@@ -275,6 +275,7 @@
   margin-top: 15px;
 }
 .sign-up-button2 {
+  margin-top: 25px;
   float: left;
   display: block;
   padding: 0.8em 1.6em;
@@ -287,6 +288,7 @@
   outline: none;
 }
 .sign-up-button3 {
+  margin-top: 25px;
   float: right;
   display: block;
   padding: 0.8em 1.6em;
