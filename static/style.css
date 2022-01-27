@@ -85,7 +85,7 @@
     overflow-x: auto;
     overflow: hidden;
   }
-  .nav__text {
+  .nav__text , .nav__text1 , .nav__text2{
     color: black;
   }
   .nav__link {
@@ -151,7 +151,7 @@
   .nav__link1:hover {
     background-color: #00fa7e;
   }
-  .nav__icon {
+  .nav__icon , .nav__icon1 , .nav__icon2{
     color: black;
     font-size: 10px;
   }
