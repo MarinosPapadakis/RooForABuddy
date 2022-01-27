@@ -179,10 +179,10 @@
     .sticky a {
       font-size: 20px;
     }
-    .nav__link1{
+    .nav__icon2 , .nav__text2{
       margin-left: 15px;
     }
-    .nav__link2{
+    .nav__icon1 , .nav__text1{
       margin-left: 20px;
     }
   }
