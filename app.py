@@ -60,7 +60,7 @@ def lostPets():
     tels = []
 
     # Query database for pets
-    cursor.execute("SELECT userId, photo, location, info FROM lostPets")
+    cursor.execute("SELECT userId, photo, location, name, location, info FROM lostPets")
     pets = cursor.fetchall()
 
     for i in range(len(pets)):
@@ -189,6 +189,8 @@ def foundanimal():
         photo = request.files["file"]
         latitude = request.form.get("latitude")
         longitude = request.form.get("longitude")
+        name = request.form.get("name")
+        location = request.form.get("location")
         info = request.form.get("info")
 
         # Secure filename
@@ -208,7 +210,7 @@ def foundanimal():
             upPath = f"{uPath}/{filename}"
 
             # Insert new pet into database
-            cursor.execute("INSERT INTO foundAnimals (userId, photo, latitude, longitude, info) VALUES (?, ?, ?, ?, ?)", (session["user_id"], upPath, latitude, longitude, info))
+            cursor.execute("INSERT INTO foundAnimals (userId, photo, latitude, longitude, name, location, info) VALUES (?, ?, ?, ?, ?)", (session["user_id"], upPath, latitude, longitude, None, None, info))
             connection.commit()
 
             # Save file
