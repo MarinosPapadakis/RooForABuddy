@@ -210,7 +210,7 @@ def foundanimal():
             upPath = f"{uPath}/{filename}"
 
             # Insert new pet into database
-            cursor.execute("INSERT INTO foundAnimals (userId, photo, latitude, longitude, name, location, info) VALUES (?, ?, ?, ?, ?)", (session["user_id"], upPath, latitude, longitude, None, None, info))
+            cursor.execute("INSERT INTO foundAnimals (userId, photo, latitude, longitude, name, location, info) VALUES (?, ?, ?, ?, ?)", (session["user_id"], upPath, latitude, longitude, name, location, info))
             connection.commit()
 
             # Save file
