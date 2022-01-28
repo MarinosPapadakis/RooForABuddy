@@ -151,7 +151,7 @@
   .nav__link1:hover {
     background-color: #00fa7e;
   }
-  .nav__icon , .nav__icon1 , .nav__icon2{
+  .nav__icon , .nav__icon1 , .nav__icon2{       
     color: black;
     font-size: 10px;
   }
@@ -251,6 +251,7 @@
   font-size: 1.8em;
   font-family: 'Ubuntu Medium', arial;
   font-weight: 800;
+  margin-left: 5px;
 }
 .sign-up-link{
     color: rgb(255, 166, 0);
