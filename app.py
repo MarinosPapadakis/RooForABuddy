@@ -189,8 +189,6 @@ def foundanimal():
         photo = request.files["file"]
         latitude = request.form.get("latitude")
         longitude = request.form.get("longitude")
-        name = request.form.get("name")
-        location = request.form.get("location")
         info = request.form.get("info")
 
         # Secure filename
@@ -210,7 +208,7 @@ def foundanimal():
             upPath = f"{uPath}/{filename}"
 
             # Insert new pet into database
-            cursor.execute("INSERT INTO foundAnimals (userId, photo, latitude, longitude, name, location, info) VALUES (?, ?, ?, ?, ?)", (session["user_id"], upPath, latitude, longitude, name, location, info))
+            cursor.execute("INSERT INTO foundAnimals (userId, photo, latitude, longitude, info) VALUES (?, ?, ?, ?, ?)", (session["user_id"], upPath, latitude, longitude, info))
             connection.commit()
 
             # Save file
@@ -241,6 +239,8 @@ def lostpet():
         # Define user's credentials
         photo = request.files["file"]
         location = request.form.get("location")
+        name = request.form.get("name")
+        location = request.form.get("location")
         info = request.form.get("info")
 
         # Secure filename
@@ -260,7 +260,7 @@ def lostpet():
             upPath = f"{uPath}/{filename}"
 
             # Insert new pet into database
-            cursor.execute("INSERT INTO lostPets (userId, location, photo, info) VALUES (?, ?, ?, ?)", (session["user_id"], location, upPath, info))
+            cursor.execute("INSERT INTO lostPets (userId, location, photo, name, location, info) VALUES (?, ?, ?, ?, ?, ?)", (session["user_id"], location, upPath, name, location, info))
             connection.commit()
 
             # Save file
