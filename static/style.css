@@ -233,7 +233,8 @@
 .sign-up-right {
     height: 100%;
     padding: 40px;
-    overflow: scroll;
+    overflow-y: scroll;
+    overflow-x: hidden;
 }
 .sing-up-title{
     color: #007d4b ;

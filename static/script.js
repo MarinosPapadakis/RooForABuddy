@@ -43,3 +43,9 @@ $('#myInput1').on('focus', function(e) {
       scrollTop: $(this).offset().top-2
   }, 1000);
 })
+document.addEventListener('deviceready', function() {
+  Keyboard.shrinkView(true)
+  window.addEventListener('keyboardDidShow', function () {
+    document.activeElement.scrollIntoView()
+  })
+})
