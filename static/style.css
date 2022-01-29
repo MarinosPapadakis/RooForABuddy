@@ -446,4 +446,5 @@ input[type="file"] {
 .currentemail_text{
   color: #007d4b;
   display: inline;
+  margin-left: 7px;
 }
