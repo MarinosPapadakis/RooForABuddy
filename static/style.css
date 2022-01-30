@@ -454,3 +454,31 @@ input[type="file"] {
   display: inline;
   margin-left: 7px;
 }
+/*Error Page */
+
+.error_container {
+  margin-top: 30%;
+}
+.error_massage {
+  display: inline-block;
+  margin-left: 7px;
+  margin-top: 70px;
+  font-size: 25px;
+  margin-right: 15px;
+  color: #880a0a;
+}
+.error_text{
+  text-align: center;
+  display: inline-block;
+  font-size: 25px;
+  margin-top: 30px;
+  margin-left: 140px;
+  color: #ff0000;
+  font-weight: bolder;
+  
+}
+.error_title {
+  text-align: center;
+  display: inline-block;
+  color: #007d4b;
+}
