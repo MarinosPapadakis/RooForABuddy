@@ -505,7 +505,7 @@ input[type="file"] {
 }
 .dropbtn {
     background-color: #0000;
-    position: fixed;
+    position: relative;
     color: black;
     font-size: 16px;
     border: none;
