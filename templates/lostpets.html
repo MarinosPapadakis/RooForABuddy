@@ -19,17 +19,6 @@
     
     <div class="info">
         <h3 id="name">{{pets[i][3]}}</h3>
-        <div class="dropdown">
-            <ul class="dropbtn icons btn-right showLeft" onclick="showDropdown()">
-                <li></li>
-                <li></li>
-                <li></li>
-            </ul>
-            <div id="myDropdown" class="dropdown-content">
-                <a href="#">Edit</a>
-                <a href="#">Delete</a>
-            </div>
-          </div>
         <p class="lostpets">{{pets[i][5]}}<br><b>City:<br>{{pets[i][4]}}</b><br> <br><b>Telephone number: </b><br><a href="tel:{{tels[i]}}" target="_blank">{{tels[i]}}</a></p>
     </div>
     </div>
@@ -37,30 +26,5 @@
     {% endfor %}
 
     <hr class="divider">
-    
-    <script>
-        function changeLanguage(language) {
-  var element = document.getElementById("url");
-  element.value = language;
-  element.innerHTML = language;
-}
 
-function showDropdown() {
-  document.getElementById("myDropdown").classList.toggle("show");
-}
-
-// Close the dropdown if the user clicks outside of it
-window.onclick = function(event) {
-  if (!event.target.matches('.dropbtn')) {
-      var dropdowns = document.getElementsByClassName("dropdown-content");
-      var i;
-      for (i = 0; i < dropdowns.length; i++) {
-          var openDropdown = dropdowns[i];
-          if (openDropdown.classList.contains('show')) {
-              openDropdown.classList.remove('show');
-          }
-      }
-  }
-}
-    </script>
 {% endblock %}
