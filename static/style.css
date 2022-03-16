@@ -540,3 +540,7 @@ input[type="file"] {
 
 .show {display:block;}
 /*3 dots*/
+textarea{
+  font-family: 'Ubuntu Light', arial;
+  resize: none;
+}
