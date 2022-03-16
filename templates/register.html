@@ -7,7 +7,7 @@
         <p class="sing-up-title">Register</p>
         <div>
             <label class="sign-up-label">Username</label>         
-            <input name="username" type="text" class="sign-up-input" required>
+            <input name="username" type="text" class="sign-up-input" required maxlength="25">
         </div>
         <div>
             <label class="sign-up-label">Email Address</label>
@@ -19,15 +19,15 @@
         </div>
         <div>
             <label class="sign-up-label">Telephone</label>         
-            <input name="telephone" type="tel" class="sign-up-input" required>
+            <input name="telephone" type="tel" class="sign-up-input" required maxlength="10">
         </div>
         <div>
             <label class="sign-up-label">Password</label>
-            <input name="password" type="password" class="sign-up-input" id="myInput" required>
+            <input name="password" type="password" class="sign-up-input" id="myInput" required minlength="8">
         </div>
         <div>
             <label class="sign-up-label">Confirm Password</label>
-            <input name="confirmation" type="password" class="sign-up-input" id="myInput1" required>
+            <input name="confirmation" type="password" class="sign-up-input" id="myInput1" required minlength="8">
             <input class="box-password" type="checkbox" onclick="showPassword()"> Show Password
         </div>
         <div>
