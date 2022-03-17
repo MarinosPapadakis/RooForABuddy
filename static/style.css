@@ -69,6 +69,7 @@
   main {
     margin: 0 auto;
   } 
+  /* --Header-- */
   /* Footer*/
   .sticky{
     position: sticky;
@@ -155,7 +156,8 @@
     color: black;
     font-size: 10px;
   }
-   /* Footer*/
+   /* --Footer--*/
+   /* Footer mobile */
   @media only screen and (max-width:800px){
     .navbar .desktop-list{
       display: none;
@@ -186,7 +188,8 @@
       margin-left: 20px;
     }
   }
-  /* header */
+  /* --Footer mobile-- */
+  /* Header mobile */
   @media(max-width:768px){
     .hamburger{
       display: block;
@@ -228,6 +231,7 @@
       display: flex;
     }
   }
+  /* --Header mobile-- */
     /*Register */  
 
 .sign-up-right {
@@ -282,11 +286,8 @@
   color: #7a797e;
 }
 .sign-up-label{
-    /*bazei pano to name apo to input box */
     display: block;
-    /* dimiourgoume keno*/
     margin-top: 16px;
-    /* To keno anamesa apo to name kai to input box*/
     margin-bottom: 5px;
     font-weight: bold;
 }
@@ -304,7 +305,6 @@
     outline: none;
     border: 2px solid #dddddd;
 }
-/*otan epilegei sto input box*/
 .sign-up-input:focus {
     border-color: #009578;
 }
@@ -386,6 +386,7 @@
   background-position: center top;
   background-size: 100% 100%;
 }
+/* --Register-- */
 /*Lost animals*/
 .here{
   color: #00fa7e;
@@ -454,6 +455,7 @@ input[type="file"] {
   display: inline;
   margin-left: 7px;
 }
+/* --Border-- */
 /*Error Page */
 
 .error_container {
@@ -482,6 +484,7 @@ input[type="file"] {
   display: inline-block;
   color: #007d4b;
 }
+/* --Error page-- */
   /*3 dots*/
   .icons li {
     background: none repeat scroll 0 0 #000;
@@ -539,12 +542,145 @@ input[type="file"] {
 .dropdown a:hover {background-color: #0000}
 
 .show {display:block;}
-/*3 dots*/
+/*--3 dots--*/
 textarea{
   font-family: 'Ubuntu Light', arial;
   resize: none;
 }
+
+/* Delete message */
 .trashcan{
   float: right;
   margin-right: 15px;
 }
+@import url('https://fonts.googleapis.com/css?family=Noto+Sans:400,700&display=swap');
+
+.confirm {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    padding: 10px;
+    box-sizing: border-box;
+
+    opacity: 0;
+    animation-name: confirm---open;
+    animation-duration: 0.2s;
+    animation-fill-mode: forwards;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.confirm--close {
+    animation-name: confirm---close;
+}
+
+.confirm__window {
+    width: 100%;
+    max-width: 600px;
+    background: white;
+    font-size: 14px;
+    font-family: 'Noto Sans', sans-serif;
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+
+    opacity: 0;
+    transform: scale(0.75);
+    animation-name: confirm__window---open;
+    animation-duration: 0.2s;
+    animation-fill-mode: forwards;
+    animation-delay: 0.2s;
+}
+
+.confirm__titlebar,
+.confirm__content,
+.confirm__buttons {
+    padding: 1.25em;
+}
+
+.confirm__titlebar {
+    background: #222222;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.confirm__title {
+    font-weight: bold;
+    font-size: 1.1em;
+}
+
+.confirm__close {
+    background: none;
+    outline: none;
+    border: none;
+    transform: scale(2.5);
+    color: #ffffff;
+    transition: color 0.15s;
+}
+
+.confirm__close:hover {
+    color: #ff0000;
+    cursor: pointer;
+}
+
+.confirm__content {
+    line-height: 1.8em;
+}
+
+.confirm__buttons {
+    background: #eeeeee;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.confirm__button {
+    padding: 0.4em 0.8em;
+    border: 2px solid #009879;
+    border-radius: 5px;
+    background: #ffffff;
+    color: #009879;
+    font-weight: bold;
+    font-size: 1.1em;
+    font-family: 'Noto Sans', sans-serif;
+    margin-left: 0.6em;
+    cursor: pointer;
+    outline: none;
+}
+
+.confirm__button--fill {
+    background: #009879;
+    color: #ffffff;
+}
+
+.confirm__button:focus {
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
+}
+
+@keyframes confirm---open {
+    from { opacity: 0 }
+    to { opacity: 1 }
+}
+
+@keyframes confirm---close {
+    from { opacity: 1 }
+    to { opacity: 0 }
+}
+
+@keyframes confirm__window---open {
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+#btnChangeBg{
+    text-decoration: none;
+}
+/* --Delete message-- */
+/* --Lost animals-- */
