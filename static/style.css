@@ -549,10 +549,6 @@ textarea{
 }
 
 /* Delete message */
-.trashcan{
-  float: right;
-  margin-right: 15px;
-}
 @import url('https://fonts.googleapis.com/css?family=Noto+Sans:400,700&display=swap');
 
 .confirm {
@@ -681,6 +677,10 @@ textarea{
 }
 #btnChangeBg{
     text-decoration: none;
+    float: right;
+    border: 1px solid #b3b3b3;
+    margin-right: 15px;
+    background-color: #b3b3b3;
 }
 /* --Delete message-- */
 /* --Lost animals-- */
