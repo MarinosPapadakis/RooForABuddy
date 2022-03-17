@@ -544,3 +544,7 @@ textarea{
   font-family: 'Ubuntu Light', arial;
   resize: none;
 }
+.trashcan{
+  float: right;
+  margin-right: 15px;
+}
