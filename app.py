@@ -3,7 +3,7 @@ from werkzeug.security import check_password_hash, generate_password_hash
 from werkzeug.utils import secure_filename
 from flask_session.__init__ import Session
 from flask_mail import Mail, Message 
-from extras import login_required
+from extras import login_required, error
 import sqlite3, os, random
 
 # Configure application
@@ -36,9 +36,6 @@ MAP_ID = os.getenv("MAP-ID")
 Session(app)
 
 mail = Mail(app)
-
-def error(error_text):
-    return render_template("errorpage.html", error_text=error_text)
 
 @app.route("/")
 def index():
