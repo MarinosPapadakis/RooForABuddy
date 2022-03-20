@@ -478,6 +478,9 @@ input[type="file"] {
   font-weight: bolder;
   
 }
+.error-div{
+  overflow: hidden;
+}
 .error_title {
   text-align: center;
   display: inline-block;
