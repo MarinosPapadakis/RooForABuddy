@@ -2,7 +2,7 @@ from flask import Flask, render_template, session, redirect, request
 from werkzeug.security import check_password_hash, generate_password_hash
 from werkzeug.utils import secure_filename
 from flask_session.__init__ import Session
-from flask_mail import Mail, Message 
+from flask_mail import Mail, Message
 from extras import login_required, error
 import sqlite3, os, random
 
@@ -65,7 +65,7 @@ def lostPets():
     pets = cursor.fetchall()
 
     for i in range(len(pets)):
-        
+
         cursor.execute("SELECT tel FROM users WHERE id=?", (pets[i][0],))
         tels.append(cursor.fetchall()[0][0])
 
@@ -101,11 +101,11 @@ def register():
         telephone = request.form.get("telephone")
 
         if not username or not fullName or not email or not telephone or not password or not confirmation:
-            error("Please provide all details")
+            return error("Please provide all details")
 
         # Check if password and confirm password do not match
         if password != confirmation:
-            error("Passwords do not match")
+            return error("Passwords do not match")
 
         # Query database for username
         cursor.execute("SELECT * FROM users WHERE username = ?", (username,))
@@ -113,7 +113,7 @@ def register():
 
         # Check if username entered by user exists already in db.
         if len(rows) >= 1:
-            error("Username already exists")
+            return error("Username already exists")
 
         # Define hashpassword
         hash_pw = generate_password_hash(password)
@@ -125,7 +125,7 @@ def register():
         # Query database for username
         cursor.execute("SELECT id FROM users WHERE username = ?", (username,))
         rows = cursor.fetchall()
-        
+
         # Save changes
         connection.commit()
 
@@ -171,7 +171,7 @@ def login():
 
         # Ensure username exists and password is correct
         if len(rows) != 1 or not check_password_hash(rows[0][1], request.form.get("password")):
-            error("Invalid username and/or password")
+            return error("Invalid username and/or password")
 
         # Remember which user has logged in
         session["user_id"] = rows[0][0]
@@ -210,7 +210,7 @@ def foundanimal():
 
             # Check for valid extensions
             if file_ext not in app.config["UPLOAD_EXTENSIONS"]:
-                error("Not accepted file extension")
+                return error("Not accepted file extension")
 
             uPath = app.config["UPLOAD_PATH"]
 
@@ -264,7 +264,7 @@ def lostpet():
 
             # Check for valid extensions
             if file_ext not in app.config["UPLOAD_EXTENSIONS"]:
-                error("Not accepted file extension")
+                return error("Not accepted file extension")
 
             uPath = app.config["UPLOAD_PATH"]
 
@@ -311,7 +311,7 @@ def changepassword():
 
         # Check if passswords match
         if newpassword != confirmation:
-            error("Passwords do not match")
+            return error("Passwords do not match")
 
         # Get user's hash
         cursor.execute("SELECT hash FROM users WHERE id=?", (userid, ))
@@ -319,7 +319,7 @@ def changepassword():
 
         # Check if old password matches
         if not check_password_hash(oldhash, oldpassword):
-            error("Incorrect old password")
+            return error("Incorrect old password")
 
         # Generate new hash
         newhash = generate_password_hash(newpassword)
@@ -351,12 +351,12 @@ def changeemail():
 
         # Check if pin is correct
         if int(request.form.get("pin")) != session["CHANGE_PASSWORD_PIN"]:
-            error("Wrong pin")
+            return error("Wrong pin")
         # Update email
         else:
             cursor.execute("UPDATE users SET email=? WHERE id=?", (request.form.get("newemail"), session["user_id"]))
             connection.commit()
-        
+
         # Close connection to database
         cursor.close()
         connection.close()
