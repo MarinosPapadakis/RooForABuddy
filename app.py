@@ -1,7 +1,7 @@
 from flask import Flask, render_template, session, redirect, request
 from werkzeug.security import check_password_hash, generate_password_hash
 from werkzeug.utils import secure_filename
-from flask_session import Session
+from flask_session.__init__ import Session
 from flask_mail import Mail, Message 
 from extras import login_required
 import sqlite3, os, random
@@ -14,10 +14,10 @@ app.config["SESSION_TYPE"] = "filesystem"
 app.config["SESSION_PERMANENT"] = True
 
 # Define database name
-app.config["DB_NAME"] = "database.db"
+app.config["DB_NAME"] = "/home/marinospap/RooForABuddy/database.db"
 
 app.config["UPLOAD_EXTENSIONS"] = [".jpg", ".png", ".jpeg"]
-app.config["UPLOAD_PATH"] = "static/uploads"
+app.config["UPLOAD_PATH"] = "/home/marinospap/RooForABuddy/static/uploads"
 
 app.config["MAIL_SERVER"]= os.getenv("MAIL-SERVER")
 app.config["MAIL_PORT"] = os.getenv("MAIL-PORT")
@@ -58,9 +58,10 @@ def lostPets():
     cursor = connection.cursor()
 
     tels = []
+    minepost = []
 
     # Query database for pets
-    cursor.execute("SELECT userId, photo, location, name, location, info FROM lostPets")
+    cursor.execute("SELECT userId, photo, location, name, location, info, id FROM lostPets")
     pets = cursor.fetchall()
 
     for i in range(len(pets)):
@@ -68,7 +69,15 @@ def lostPets():
         cursor.execute("SELECT tel FROM users WHERE id=?", (pets[i][0],))
         tels.append(cursor.fetchall()[0][0])
 
-    return render_template("lostpets.html", len=len(pets), pets=pets, tels=tels)
+        try:
+            if pets[i][0] == session["user_id"]:
+                minepost.append(True)
+            else:
+                minepost.append(False)
+        except:
+            minepost.append(False)
+
+    return render_template("lostpets.html", len=len(pets), pets=pets, tels=tels, minepost=minepost)
 
 @app.route("/register", methods=["GET", "POST"])
 def register():
@@ -207,12 +216,14 @@ def foundanimal():
 
             upPath = f"{uPath}/{filename}"
 
-            # Insert new pet into database
-            cursor.execute("INSERT INTO foundAnimals (userId, photo, latitude, longitude, info) VALUES (?, ?, ?, ?, ?)", (session["user_id"], upPath, latitude, longitude, info))
-            connection.commit()
+            dbPath = f"/static/uploads/{filename}"
 
             # Save file
             photo.save(upPath)
+
+            # Insert new pet into database
+            cursor.execute("INSERT INTO foundAnimals (userId, photo, latitude, longitude, info) VALUES (?, ?, ?, ?, ?)", (session["user_id"], dbPath, latitude, longitude, info))
+            connection.commit()
 
             # Close connection to database
             cursor.close()
@@ -259,12 +270,14 @@ def lostpet():
 
             upPath = f"{uPath}/{filename}"
 
-            # Insert new pet into database
-            cursor.execute("INSERT INTO lostPets (userId, location, photo, name, location, info) VALUES (?, ?, ?, ?, ?, ?)", (session["user_id"], location, upPath, name, location, info))
-            connection.commit()
+            dbPath = f"/static/uploads/{filename}"
 
             # Save file
             photo.save(upPath)
+
+            # Insert new pet into database
+            cursor.execute("INSERT INTO lostPets (userId, location, photo, name, location, info) VALUES (?, ?, ?, ?, ?, ?)", (session["user_id"], location, dbPath, name, location, info))
+            connection.commit()
 
             # Close connection to database
             cursor.close()
@@ -405,3 +418,20 @@ def changetelephone():
 
     else:
         return render_template("changetelephone.html")
+
+
+@app.route("/deletepost/<id>", methods=["GET", "POST"])
+def deletepost(id):
+
+    # Connect to database
+    connection = sqlite3.connect(app.config["DB_NAME"])
+    cursor = connection.cursor()
+
+    cursor.execute("DELETE FROM lostPets WHERE id = ?", (id,))
+    connection.commit()
+
+    # Close connection to the database
+    cursor.close()
+    connection.close()
+
+    return redirect("/lostpets")
