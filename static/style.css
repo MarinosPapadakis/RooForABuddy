@@ -460,6 +460,7 @@ input[type="file"] {
 
 .error_container {
   margin-top: 30%;
+  overflow: hidden;
 }
 .error_massage {
   display: inline-block;
